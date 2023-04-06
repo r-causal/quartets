@@ -61,7 +61,7 @@ In each of the datasets the following statistical summaries hold:
 
 ``` r
 library(tidyverse)
-library(quartet)
+library(quartets)
 
 ggplot(anscombe_quartet, aes(x = x, y = y)) +
   geom_point() + 
