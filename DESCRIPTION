@@ -1,0 +1,23 @@
+Package: quartets
+Type: Package
+Title: Datasets to help teach statistics
+Version: 0.1.0
+Authors@R: c(
+    person("Lucy", "D'Agostino McGowan", , "lucydagostino@gmail.com", 
+    role = c("aut", "cre"), comment = c(ORCID = "0000-0002-6983-2759"))
+    )
+Description: In the spirit of Anscombe's quartet, this package includes datasets
+   that demonstrate the importance of visualizing your data, the importance of 
+   not relying on statistical summary measures alone, and why additional 
+   assumptions about the data generating mechanism are needed when estimating 
+   causal effects.
+License: MIT + file LICENSE
+URL: https://github.com/r-causal/quartets,
+    https://r-causal.github.io/quartets/
+BugReports: https://github.com/r-causal/quartets/issues
+Encoding: UTF-8
+LazyData: true
+Depends: 
+    R (>= 2.10)
+RoxygenNote: 7.2.3
+Roxygen: list(markdown = TRUE)

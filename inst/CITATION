@@ -1,0 +1,12 @@
+citHeader("To cite quartet in publications use:")
+
+citEntry(
+  entry    = "Manual",
+  title    = "quartet: Datasets to help teach statistics",
+  author   = "Lucy {D'Agostino McGowan}",
+  year     = "2023",
+  url      = "https://lucymcgowan.github.io/quartet/",
+  textVersion = paste(
+
+  )
+)
