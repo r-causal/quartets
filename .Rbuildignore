@@ -8,3 +8,4 @@
 ^pkgdown$
 ^\.github$
 ^README_cache$
+^hex.psd$
