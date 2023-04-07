@@ -3,28 +3,19 @@
 \docType{data}
 \name{heterogeneous_causal_quartet}
 \alias{heterogeneous_causal_quartet}
-\alias{heterogeneous_conceptual_causal_quartet}
 \title{Gelman Heterogeneity Causal Quartet Data}
 \format{
-\code{heterogeneous_causal_quartet}: A dataframe with 88 rows and 4 variables:
+A dataframe with 88 rows and 5 variables:
 \itemize{
 \item \code{dataset}: The data generating mechanism
-\item \code{x}: exposure
-\item \code{z}: a pre-exposure factor
-\item \code{y}: outcome
-}
-
-\code{heterogeneous_conceptual_causal_quartet}:  A dataframe with 88 rows and 4 variables:
-\itemize{
-\item \code{dataset}: The data generating mechanism
-\item \code{z}: A pre-exposure factor
-\item \code{causal_effect}: The true causal effect
+\item \code{exposure}: exposure
+\item \code{covariate}: a pre-exposure factor
+\item \code{outcome}: outcome
+\item \code{.causal_effect}: latent true causal effect
 }
 }
 \usage{
 heterogeneous_causal_quartet
-
-heterogeneous_conceptual_causal_quartet
 }
 \description{
 This dataset contains 88 observations, each generated under a different
@@ -36,10 +27,6 @@ pre-exposure characteristic, \code{z}:
 \item (3) Plateau
 \item (4) Intermediate zone with large effects
 }
-}
-\details{
-The dataframe \code{heterogeneous_conceptual_causal_quartet} contains the latent
-"true" causal effect.
 }
 \references{
 Gelman, A., Hullman, J., & Kennedy, L. (2023). Causal quartets: Different ways to attain the same average treatment effect. arXiv preprint arXiv:2302.12878.

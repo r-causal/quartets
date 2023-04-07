@@ -3,9 +3,9 @@
 #' This dataset contains 100 observations, generated under the following mechanism:
 #' U1 ~ N(0, 1)
 #' U2 ~ N(0, 1)
-#' Z ~ 8 U1 + U2 + N(0, 1)
-#' X ~ U1 + N(0,1)
-#' Y ~ X + U2 + N(0, 1)
+#' Z ~ 8 U1 + U2 + N(0, 1) (measured factor)
+#' X ~ U1 + N(0, 1) (exposure)
+#' Y ~ X + U2 + N(0, 1) (outcome)
 #'
 #' @references D'Agostino McGowan L, Barrett M (2023). Causal inference is not a statistical problem. Preprint arXiv:2304.02683v1.
 #'
@@ -13,8 +13,8 @@
 #'
 #' * `u1`: an unknown factor
 #' * `u2`: an unknown factor
-#' * `z`: a known factor
-#' * `x`: exposure
-#' * `y`: outcome
+#' * `covariate`: a known factor
+#' * `exposure`: exposure
+#' * `outcome`: outcome
 
 "causal_m_bias"

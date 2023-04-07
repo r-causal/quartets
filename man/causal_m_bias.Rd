@@ -9,9 +9,9 @@ A dataframe with 100 rows and 5 variables:
 \itemize{
 \item \code{u1}: an unknown factor
 \item \code{u2}: an unknown factor
-\item \code{z}: a known factor
-\item \code{x}: exposure
-\item \code{y}: outcome
+\item \code{covariate}: a known factor
+\item \code{exposure}: exposure
+\item \code{outcome}: outcome
 }
 }
 \usage{
@@ -21,9 +21,9 @@ causal_m_bias
 This dataset contains 100 observations, generated under the following mechanism:
 U1 ~ N(0, 1)
 U2 ~ N(0, 1)
-Z ~ 8 U1 + U2 + N(0, 1)
-X ~ U1 + N(0,1)
-Y ~ X + U2 + N(0, 1)
+Z ~ 8 U1 + U2 + N(0, 1) (measured factor)
+X ~ U1 + N(0, 1) (exposure)
+Y ~ X + U2 + N(0, 1) (outcome)
 }
 \references{
 D'Agostino McGowan L, Barrett M (2023). Causal inference is not a statistical problem. Preprint arXiv:2304.02683v1.

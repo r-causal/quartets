@@ -8,9 +8,9 @@
 A dataframe with 400 rows and 6 variables:
 \itemize{
 \item \code{dataset}: The data generating mechanism
-\item \code{x}: exposure
-\item \code{y}: outcome
-\item \code{z}: a known factor
+\item \code{exposure}: exposure
+\item \code{outcome}: outcome
+\item \code{covariate}: a known factor
 \item \code{u1}: an unknown factor
 \item \code{u2}: an unknown factor
 }
