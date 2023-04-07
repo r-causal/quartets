@@ -104,7 +104,7 @@ for details.
 ## Example
 
 ``` r
-ggplot(causal_quartet, aes(x = x, y = y)) +
+ggplot(causal_quartet, aes(x = exposure, y = outcome)) +
   geom_point() + 
   geom_smooth(method = "lm", formula = "y ~ x") +
   facet_wrap(~dataset)
@@ -115,9 +115,9 @@ ggplot(causal_quartet, aes(x = x, y = y)) +
 ``` r
 causal_quartet |>
   nest_by(dataset) |>
-  mutate(`Y ~ X` = round(coef(lm(y ~ x, data = data))[2], 2),
-         `Y ~ X + Z` = round(coef(lm(y ~ x + z, data = data))[2], 2),
-         `Correlation of X and Z` = round(cor(data$x, data$z), 2)) |>
+  mutate(`Y ~ X` = round(coef(lm(outcome ~ exposure, data = data))[2], 2),
+         `Y ~ X + Z` = round(coef(lm(outcome ~ exposure + covariate, data = data))[2], 2),
+         `Correlation of X and Z` = round(cor(data$exposure, data$covariate), 2)) |>
   select(-data, `Data generating mechanism` = dataset) |>
   knitr::kable()
 ```
@@ -309,7 +309,7 @@ can get the same average treatment effect despite variability across
 some pre-treatment characteristic (here called `z`).
 
 ``` r
-ggplot(variation_causal_quartet, aes(x = z, y = y, color = factor(x))) + 
+ggplot(variation_causal_quartet, aes(x = covariate, y = outcome, color = factor(exposure))) + 
   geom_point(alpha = 0.5) + 
   facet_wrap(~ dataset) + 
   labs(color = "exposure group")
@@ -321,7 +321,7 @@ ggplot(variation_causal_quartet, aes(x = z, y = y, color = factor(x))) +
 
 variation_causal_quartet |>
   nest_by(dataset) |>
-  mutate(ATE = round(coef(lm(y ~ x, data = data))[2], 2)) |>
+  mutate(ATE = round(coef(lm(outcome ~ exposure, data = data))[2], 2)) |>
   select(-data, dataset) |>
   knitr::kable()
 ```
@@ -334,10 +334,10 @@ variation_causal_quartet |>
 | \(4\) Occasional large effects | 0.1 |
 
 The `heterogeneous_causal_quartet` demonstrates how you can observe the
-same causal effect under different patterns of treatment heterogenity.
+same causal effect under different patterns of treatment heterogeneity.
 
 ``` r
-ggplot(heterogeneous_causal_quartet, aes(x = z, y = y, color = factor(x))) + 
+ggplot(heterogeneous_causal_quartet, aes(x = covariate, y = outcome, color = factor(exposure))) + 
   geom_point(alpha = 0.5) + 
   facet_wrap(~ dataset) + 
   labs(color = "exposure group")
@@ -349,7 +349,7 @@ ggplot(heterogeneous_causal_quartet, aes(x = z, y = y, color = factor(x))) +
 
 heterogeneous_causal_quartet |>
   nest_by(dataset) |>
-  mutate(ATE = round(coef(lm(y ~ x, data = data))[2], 2)) |>
+  mutate(ATE = round(coef(lm(outcome ~ exposure, data = data))[2], 2)) |>
   select(-data, dataset) |>
   knitr::kable()
 ```
