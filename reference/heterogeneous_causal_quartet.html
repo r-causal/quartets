@@ -69,26 +69,17 @@ pre-exposure characteristic, <code>z</code>:</p><ul><li><p>(1) Linear interactio
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="va">heterogeneous_causal_quartet</span></span>
-<span></span>
-<span><span class="va">heterogeneous_conceptual_causal_quartet</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="va">heterogeneous_causal_quartet</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="format">Format<a class="anchor" aria-label="anchor" href="#format"></a></h2>
-    <p><code>heterogeneous_causal_quartet</code>: A dataframe with 88 rows and 4 variables:</p><ul><li><p><code>dataset</code>: The data generating mechanism</p></li>
-<li><p><code>x</code>: exposure</p></li>
-<li><p><code>z</code>: a pre-exposure factor</p></li>
-<li><p><code>y</code>: outcome</p></li>
-</ul><p><code>heterogeneous_conceptual_causal_quartet</code>:  A dataframe with 88 rows and 4 variables:</p><ul><li><p><code>dataset</code>: The data generating mechanism</p></li>
-<li><p><code>z</code>: A pre-exposure factor</p></li>
-<li><p><code>causal_effect</code>: The true causal effect</p></li>
+    <p>A dataframe with 88 rows and 5 variables:</p><ul><li><p><code>dataset</code>: The data generating mechanism</p></li>
+<li><p><code>exposure</code>: exposure</p></li>
+<li><p><code>covariate</code>: a pre-exposure factor</p></li>
+<li><p><code>outcome</code>: outcome</p></li>
+<li><p><code>.causal_effect</code>: latent true causal effect</p></li>
 </ul></div>
-    <div class="section level2">
-    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>The dataframe <code>heterogeneous_conceptual_causal_quartet</code> contains the latent
-"true" causal effect.</p>
-    </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Gelman, A., Hullman, J., &amp; Kennedy, L. (2023). Causal quartets: Different ways to attain the same average treatment effect. arXiv preprint arXiv:2302.12878.</p>
