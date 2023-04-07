@@ -57,7 +57,7 @@ causal_quartet <- bind_rows(causal_confounding,
 
 usethis::use_data(causal_quartet, overwrite = TRUE)
 
-set.seed(112)
+set.seed(44)
 
 causal_confounding_time <- tibble(
   covariate_baseline = causal_confounding$covariate,
@@ -65,7 +65,7 @@ causal_confounding_time <- tibble(
   outcome_index = causal_confounding$outcome,
   covariate_index = covariate_baseline + rnorm(n),
   exposure_followup = exposure_index + covariate_index + rnorm(n),
-  outcome_followup =  0.5 * exposure_index + covariate_index + rnorm(n),
+  outcome_followup = 0.5 * exposure_index + covariate_index + rnorm(n),
   covariate_followup = covariate_index + rnorm(n),
 )
 
