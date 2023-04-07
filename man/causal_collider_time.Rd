@@ -43,7 +43,7 @@
 
 \code{causal_m_bias_time}: A dataframe with 100 rows and 9 variables:
 \itemize{
-\item \code{u1}: unmeaured factor
+\item \code{u1}: unmeasured factor
 \item \code{u2}: unmeasured factor
 \item \code{covariate_baseline}: known factor measured at baseline (pre-exposure)
 \item \code{exposure_index}: exposure measured at the index visit (time 0)

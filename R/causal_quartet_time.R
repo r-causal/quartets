@@ -72,7 +72,7 @@
 #' @rdname causal_collider_time
 #' @format `causal_m_bias_time`: A dataframe with 100 rows and 9 variables:
 #'
-#' * `u1`: unmeaured factor
+#' * `u1`: unmeasured factor
 #' * `u2`: unmeasured factor
 #' * `covariate_baseline`: known factor measured at baseline (pre-exposure)
 #' * `exposure_index`: exposure measured at the index visit (time 0)

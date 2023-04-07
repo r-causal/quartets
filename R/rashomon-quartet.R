@@ -13,7 +13,7 @@
 #' where \eqn{\varepsilon\sim N(0,1/3)} and \eqn{[x_1,x_2,x_3]\sim N(0, \Sigma_{3x3})}
 #' and \eqn{\Sigma_{3x3}} has 1 on the diagonal and 0.9 elsewhere.
 #'
-#' If fit using the following hypterparameters, each model will yield an \eqn{R^2} of 0.73 and an RMSE of 0.354
+#' If fit using the following hyperparameters, each model will yield an \eqn{R^2} of 0.73 and an RMSE of 0.354
 #'
 #' * Regression tree: max depth: 3, min split: 250
 #' * Linear model: all main effects

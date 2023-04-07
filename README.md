@@ -134,7 +134,7 @@ causal_quartet |>
 Similar to Anscombe’s Quartet, the Datasaurus Dozen has additional data
 sets where the mean, variance, and Pearson’s correlation are identical,
 but visualizations demonstrate the large difference between datasets.
-This dataset is rexported from the
+This dataset is re-exported from the
 [datasauRus](https://CRAN.R-project.org/package=datasauRus) R package.
 
 ## Example
