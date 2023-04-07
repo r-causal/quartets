@@ -10,7 +10,7 @@
 
 **Authors:** [Lucy D’Agostino
 McGowan](https://www.lucymcgowan.com/)<br/> **License:**
-[MIT](https://opensource.org/licenses/MIT)
+[MIT](https://opensource.org/licenses/mit)
 
 The quartets package is a collection of datasets aimed to help data
 analysis practitioners and students learn key statistical insights in a

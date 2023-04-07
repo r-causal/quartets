@@ -1,12 +1,7 @@
-citHeader("To cite quartet in publications use:")
-
-citEntry(
-  entry    = "Manual",
+bibentry(
+  bibtype    = "Manual",
   title    = "quartet: Datasets to help teach statistics",
-  author   = "Lucy {D'Agostino McGowan}",
+  author   = person("Lucy", "D'Agostino McGowan"),
   year     = "2023",
-  url      = "https://lucymcgowan.github.io/quartet/",
-  textVersion = paste(
-
-  )
+  url      = "https://lucymcgowan.github.io/quartet/"
 )

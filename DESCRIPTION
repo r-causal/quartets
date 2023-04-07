@@ -1,6 +1,6 @@
 Package: quartets
 Type: Package
-Title: Datasets to help teach statistics
+Title: Datasets to Help Teach Statistics
 Version: 0.1.0
 Authors@R: c(
     person("Lucy", "D'Agostino McGowan", , "lucydagostino@gmail.com", 
