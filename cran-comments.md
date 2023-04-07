@@ -4,4 +4,4 @@
 
 * This is a new release.
 * Changed MIT link
-* Changed title to title case
+* Add DOI citations
