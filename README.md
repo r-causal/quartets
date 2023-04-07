@@ -370,6 +370,9 @@ Statistician. 27 (1): 17–21. <doi:10.1080/00031305.1973.10478966>. JSTOR
 Biecek P, Baniecki H, Krzyziński M, Cook D (2023). Performance is not
 enough: the story of Rashomon’s quartet. Preprint arXiv:2302.13356v2.
 
+D’Agostino McGowan L, Barrett M (2023). Causal inference is not a
+statistical problem. Preprint arXiv:2304.02683v1.
+
 Davies R, Locke S, D’Agostino McGowan L (2022). *datasauRus: Datasets
 from the Datasaurus Dozen*. R package version 0.1.6,
 <https://CRAN.R-project.org/package=datasauRus>.

@@ -286,6 +286,7 @@ Anscombe, F. J. (1973). "Graphs in Statistical Analysis". American Statistician.
 
 Biecek P, Baniecki H, Krzyziński M, Cook D (2023). Performance is not enough: the story of Rashomon’s quartet. Preprint arXiv:2302.13356v2.
 
+D'Agostino McGowan L, Barrett M (2023). Causal inference is not a statistical problem. Preprint arXiv:2304.02683v1.
 
 Davies R, Locke S, D'Agostino McGowan L (2022). _datasauRus: Datasets from the Datasaurus Dozen_. R package version 0.1.6, <https://CRAN.R-project.org/package=datasauRus>.
 

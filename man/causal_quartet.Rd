@@ -28,4 +28,7 @@ data generating mechanism:
 \item (4) M-bias
 }
 }
+\references{
+D'Agostino McGowan L, Barrett M (2023). Causal inference is not a statistical problem. Preprint arXiv:2304.02683v1.
+}
 \keyword{datasets}

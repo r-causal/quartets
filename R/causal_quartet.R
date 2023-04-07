@@ -7,6 +7,8 @@
 #'   * (3) A mediator
 #'   * (4) M-bias
 #'
+#' @references D'Agostino McGowan L, Barrett M (2023). Causal inference is not a statistical problem. Preprint arXiv:2304.02683v1.
+#'
 #' @format A dataframe with 400 rows and 6 variables:
 #'
 #' * `dataset`: The data generating mechanism

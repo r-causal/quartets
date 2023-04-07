@@ -25,4 +25,7 @@ Z ~ 8 U1 + U2 + N(0, 1)
 X ~ U1 + N(0,1)
 Y ~ X + U2 + N(0, 1)
 }
+\references{
+D'Agostino McGowan L, Barrett M (2023). Causal inference is not a statistical problem. Preprint arXiv:2304.02683v1.
+}
 \keyword{datasets}
