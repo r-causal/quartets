@@ -56,3 +56,69 @@ causal_quartet <- bind_rows(causal_confounding,
   select(dataset, exposure, outcome, covariate, u1, u2)
 
 usethis::use_data(causal_quartet, overwrite = TRUE)
+
+set.seed(112)
+
+causal_confounding_time <- tibble(
+  covariate_baseline = causal_confounding$covariate,
+  exposure_index = causal_confounding$exposure,
+  outcome_index = causal_confounding$outcome,
+  covariate_index = covariate_baseline + rnorm(n),
+  exposure_followup = exposure_index + covariate_index + rnorm(n),
+  outcome_followup =  0.5 * exposure_index + covariate_index + rnorm(n),
+  covariate_followup = covariate_index + rnorm(n),
+)
+
+usethis::use_data(causal_confounding_time, overwrite = TRUE)
+
+set.seed(45652)
+causal_collider_time <- tibble(
+  exposure_prebaseline = rnorm(n, sd = sqrt(1/3)),
+  outcome_prebaseline = exposure_prebaseline + rnorm(n),
+  exposure_baseline = exposure_prebaseline + rnorm(n, sd = sqrt(1/3)),
+  outcome_baseline = exposure_prebaseline + rnorm(n),
+  covariate_baseline = 0.45 * exposure_prebaseline + 0.77 * outcome_baseline + rnorm(n),
+  exposure_index = exposure_baseline + rnorm(n, sd = sqrt(1/3)),
+  outcome_index = exposure_baseline + rnorm(n),
+  covariate_index = 0.45 * exposure_baseline + 0.77 * outcome_index + rnorm(n),
+  exposure_followup = exposure_index + rnorm(n),
+  outcome_followup = exposure_index + rnorm(n),
+  covariate_followup = 0.45 * exposure_index + 0.77 * outcome_followup + rnorm(n)
+) |>
+  select(-exposure_prebaseline, -outcome_prebaseline,
+         -exposure_baseline, -outcome_baseline)
+
+usethis::use_data(causal_collider_time, overwrite = TRUE)
+
+set.seed(35396)
+causal_mediator_time <- tibble(
+  exposure_baseline = rnorm(n, sd = sqrt(1/2)),
+  covariate_baseline = exposure_baseline + rnorm(n),
+  exposure_index = exposure_baseline + rnorm(n, sd = sqrt(1/2)),
+  covariate_index = exposure_index + rnorm(n),
+  outcome_index = covariate_baseline + rnorm(n),
+  exposure_followup = exposure_index + rnorm(n),
+  covariate_followup = exposure_followup + rnorm(n),
+  outcome_followup = covariate_index + rnorm(n)
+) |>
+  select(-exposure_baseline)
+
+usethis::use_data(causal_mediator_time, overwrite = TRUE)
+
+set.seed(7457)
+causal_m_bias_time <- tibble(
+  u1 = rnorm(n),
+  u2 = rnorm(n),
+  exposure_baseline = u1 + rnorm(n),
+  covariate_baseline = 8 * u1 + u2 + rnorm(n),
+  exposure_index = u1 + rnorm(n),
+  outcome_index = exposure_baseline + rnorm(n),
+  covariate_index = 8 * u1 + u2 + rnorm(n),
+  outcome_followup = exposure_index + u2 + rnorm(n),
+  exposure_followup = u1 + rnorm(n),
+  covariate_followup = 8 * u1 + u2 + rnorm(n)
+) |>
+  select(-exposure_baseline)
+
+usethis::use_data(causal_m_bias_time, overwrite = TRUE)
+
