@@ -105,7 +105,7 @@ causal_mediator_time <- tibble(
 
 usethis::use_data(causal_mediator_time, overwrite = TRUE)
 
-set.seed(7457)
+set.seed(20213)
 causal_m_bias_time <- tibble(
   u1 = rnorm(n),
   u2 = rnorm(n),
