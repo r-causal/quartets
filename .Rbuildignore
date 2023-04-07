@@ -9,3 +9,4 @@
 ^\.github$
 ^README_cache$
 ^hex.psd$
+^cran-comments\.md$
