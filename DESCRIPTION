@@ -13,7 +13,7 @@ Description: In the spirit of Anscombe's quartet, this package includes datasets
    causal effects. The package includes Anscombe's quartet (Anscombe 1973) <doi: 10.1080/00031305.1973.10478966>,
    D'Agostino McGowan & Barrett (2023) Causal Quartet <doi: 10.48550/arXiv.2304.02683>, 
    Datasaurus Dozen (Matejka & Fitzmaurice 2017), Interaction Triptych, Rashomon Quartet (Biecek et al. 2023) <doi: 10.48550/arXiv.2302.13356>, and
-   Gelman Variation and Heterogeneity Causal Quartets (Gelman et al. 2023) <doi: 10.48550/arXiv.2302.12878>
+   Gelman Variation and Heterogeneity Causal Quartets (Gelman et al. 2023) <doi: 10.48550/arXiv.2302.12878>.
 License: MIT + file LICENSE
 URL: https://github.com/r-causal/quartets,
     https://r-causal.github.io/quartets/
