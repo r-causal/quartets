@@ -57,7 +57,7 @@ causal_quartet <- bind_rows(causal_confounding,
 
 usethis::use_data(causal_quartet, overwrite = TRUE)
 
-set.seed(93)
+set.seed(92)
 
 causal_confounding_time <- tibble(
   covariate_prebaseline = rnorm(n),
