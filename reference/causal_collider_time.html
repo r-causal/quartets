@@ -75,46 +75,47 @@ data generating mechanism:</p><ul><li><p>(1) A collider</p></li>
 <span></span>
 <span><span class="va">causal_mediator_time</span></span>
 <span></span>
-<span><span class="va">causal_m_bias_time</span></span></code></pre></div>
+<span><span class="va">causal_m_bias_time</span></span>
+<span></span>
+<span><span class="va">causal_quartet_time</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="format">Format<a class="anchor" aria-label="anchor" href="#format"></a></h2>
-    <p><code>causal_collider_time</code>: A dataframe with 100 rows and 7 variables:</p><ul><li><p><code>covariate_baseline</code>: known factor measured at baseline (pre-exposure)</p></li>
-<li><p><code>exposure_index</code>: exposure measured at the index visit (time 0)</p></li>
-<li><p><code>outcome_index</code>: outcome measured at the index visit (time 0)</p></li>
-<li><p><code>covariate_index</code>: known factor measured at the index visit (time 0)</p></li>
+    <p><code>causal_collider_time</code>: A dataframe with 100 rows and 7 variables:</p><ul><li><p><code>covariate_baseline</code>: known factor measured at baseline</p></li>
+<li><p><code>exposure_baseline</code>: exposure measured at baseline</p></li>
+<li><p><code>outcome_baseline</code>: outcome measured at baseline</p></li>
 <li><p><code>exposure_followup</code>: exposure measured at the followup visit (final time)</p></li>
 <li><p><code>outcome_followup</code>: outcome measured at the followup visit (final time)</p></li>
 <li><p><code>covariate_followup</code>: known factor measured at the followup visit (final time)</p></li>
-</ul><p><code>causal_confounding_time</code>: A dataframe with 100 rows and 7 variables:</p><ul><li><p><code>covariate_baseline</code>: known factor measured at baseline (pre-exposure)</p></li>
-<li><p><code>exposure_index</code>: exposure measured at the index visit (time 0)</p></li>
-<li><p><code>outcome_index</code>: outcome measured at the index visit (time 0)</p></li>
-<li><p><code>covariate_index</code>: known factor measured at the index visit (time 0)</p></li>
+</ul><p><code>causal_confounding_time</code>: A dataframe with 100 rows and 7 variables:</p><ul><li><p><code>covariate_baseline</code>: known factor measured at baseline</p></li>
+<li><p><code>exposure_baseline</code>: exposure measured at baseline</p></li>
+<li><p><code>outcome_baseline</code>: outcome measured at baseline</p></li>
 <li><p><code>exposure_followup</code>: exposure measured at the followup visit (final time)</p></li>
 <li><p><code>outcome_followup</code>: outcome measured at the followup visit (final time)</p></li>
 <li><p><code>covariate_followup</code>: known factor measured at the followup visit (final time)</p></li>
-</ul><p><code>causal_mediator_time</code>: A dataframe with 100 rows and 7 variables:</p><ul><li><p><code>covariate_baseline</code>: known factor measured at baseline (pre-exposure)</p></li>
-<li><p><code>exposure_index</code>: exposure measured at the index visit (time 0)</p></li>
-<li><p><code>outcome_index</code>: outcome measured at the index visit (time 0)</p></li>
-<li><p><code>covariate_index</code>: known factor measured at the index visit (time 0)</p></li>
+</ul><p><code>causal_mediator_time</code>: A dataframe with 100 rows and 7 variables:</p><ul><li><p><code>covariate_baseline</code>: known factor measured at baseline</p></li>
+<li><p><code>exposure_baseline</code>: exposure measured at baseline</p></li>
+<li><p><code>outcome_baseline</code>: outcome measured at baseline</p></li>
+<li><p><code>covariate_mid</code>: known factor measured at some mid-point</p></li>
+<li><p><code>exposure_mid</code>: exposure measured at some mid-point</p></li>
+<li><p><code>outcome_mid</code>: outcome measured at some mid-point</p></li>
 <li><p><code>exposure_followup</code>: exposure measured at the followup visit (final time)</p></li>
 <li><p><code>outcome_followup</code>: outcome measured at the followup visit (final time)</p></li>
 <li><p><code>covariate_followup</code>: known factor measured at the followup visit (final time)</p></li>
 </ul><p><code>causal_m_bias_time</code>: A dataframe with 100 rows and 9 variables:</p><ul><li><p><code>u1</code>: unmeasured factor</p></li>
 <li><p><code>u2</code>: unmeasured factor</p></li>
-<li><p><code>covariate_baseline</code>: known factor measured at baseline (pre-exposure)</p></li>
-<li><p><code>exposure_index</code>: exposure measured at the index visit (time 0)</p></li>
-<li><p><code>outcome_index</code>: outcome measured at the index visit (time 0)</p></li>
-<li><p><code>covariate_index</code>: known factor measured at the index visit (time 0)</p></li>
+<li><p><code>covariate_baseline</code>: known factor measured at baseline</p></li>
+<li><p><code>exposure_baseline</code>: exposure measured at baseline</p></li>
+<li><p><code>outcome_baseline</code>: outcome measured at baseline</p></li>
 <li><p><code>exposure_followup</code>: exposure measured at the followup visit (final time)</p></li>
 <li><p><code>outcome_followup</code>: outcome measured at the followup visit (final time)</p></li>
 <li><p><code>covariate_followup</code>: known factor measured at the followup visit (final time)</p></li>
-</ul></div>
+</ul><p>An object of class <code>tbl_df</code> (inherits from <code>tbl</code>, <code>data.frame</code>) with 400 rows and 12 columns.</p>
+    </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>There are three time points:</p><ul><li><p>baseline</p></li>
-<li><p>index (time 0, time of exposure classification)</p></li>
+    <p>There are two time points:</p><ul><li><p>baseline</p></li>
 <li><p>follow up</p></li>
 </ul><p>These datasets help demonstrate that a model that includes only pre-exposure
 covariates (that is, only adjusting for covariates measured at baseline), will
@@ -133,32 +134,32 @@ often not ones we practically see in data analysis.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## incorrect model because covariate is post-treatment</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">outcome_followup</span> <span class="op">~</span> <span class="va">exposure_index</span> <span class="op">+</span> <span class="va">covariate_followup</span>,</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">outcome_followup</span> <span class="op">~</span> <span class="va">exposure_baseline</span> <span class="op">+</span> <span class="va">covariate_followup</span>,</span></span>
 <span class="r-in"><span>   data <span class="op">=</span> <span class="va">causal_collider_time</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> lm(formula = outcome_followup ~ exposure_index + covariate_followup, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> lm(formula = outcome_followup ~ exposure_baseline + covariate_followup, </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     data = causal_collider_time)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        (Intercept)      exposure_index  covariate_followup  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             0.0578              0.4082              0.4968  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        (Intercept)   exposure_baseline  covariate_followup  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           -0.03753             0.27940             0.53309  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## correct model because covariate is pre-treatment</span></span></span>
 <span class="r-in"><span><span class="co">## even though the true mechanism dictates that the covariate is a collider,</span></span></span>
 <span class="r-in"><span><span class="co">## because the pre-exposure variable is used, the collider bias does not</span></span></span>
 <span class="r-in"><span><span class="co">## occur.</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">outcome_followup</span> <span class="op">~</span> <span class="va">exposure_index</span> <span class="op">+</span> <span class="va">covariate_baseline</span>,</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">outcome_followup</span> <span class="op">~</span> <span class="va">exposure_baseline</span> <span class="op">+</span> <span class="va">covariate_baseline</span>,</span></span>
 <span class="r-in"><span>   data <span class="op">=</span> <span class="va">causal_collider_time</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> lm(formula = outcome_followup ~ exposure_index + covariate_baseline, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> lm(formula = outcome_followup ~ exposure_baseline + covariate_baseline, </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     data = causal_collider_time)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        (Intercept)      exposure_index  covariate_baseline  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           -0.07304             1.00838            -0.02298  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        (Intercept)   exposure_baseline  covariate_baseline  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           -0.15737             0.92682             0.01004  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>
