@@ -72,7 +72,7 @@ causal_confounding_time <- tibble(
 
 usethis::use_data(causal_confounding_time, overwrite = TRUE)
 
-set.seed(182906)
+set.seed(414576)
 causal_collider_time <- tibble(
   exposure_prebaseline = rnorm(n, sd = sqrt(1/2)),
   outcome_prebaseline = exposure_prebaseline + rnorm(n),
