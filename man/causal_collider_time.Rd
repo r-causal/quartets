@@ -6,14 +6,14 @@
 \alias{causal_confounding_time}
 \alias{causal_mediator_time}
 \alias{causal_m_bias_time}
+\alias{causal_quartet_time}
 \title{Time-varying Causal Quartet Data}
 \format{
 \code{causal_collider_time}: A dataframe with 100 rows and 7 variables:
 \itemize{
-\item \code{covariate_baseline}: known factor measured at baseline (pre-exposure)
-\item \code{exposure_index}: exposure measured at the index visit (time 0)
-\item \code{outcome_index}: outcome measured at the index visit (time 0)
-\item \code{covariate_index}: known factor measured at the index visit (time 0)
+\item \code{covariate_baseline}: known factor measured at baseline
+\item \code{exposure_baseline}: exposure measured at baseline
+\item \code{outcome_baseline}: outcome measured at baseline
 \item \code{exposure_followup}: exposure measured at the followup visit (final time)
 \item \code{outcome_followup}: outcome measured at the followup visit (final time)
 \item \code{covariate_followup}: known factor measured at the followup visit (final time)
@@ -21,10 +21,9 @@
 
 \code{causal_confounding_time}: A dataframe with 100 rows and 7 variables:
 \itemize{
-\item \code{covariate_baseline}: known factor measured at baseline (pre-exposure)
-\item \code{exposure_index}: exposure measured at the index visit (time 0)
-\item \code{outcome_index}: outcome measured at the index visit (time 0)
-\item \code{covariate_index}: known factor measured at the index visit (time 0)
+\item \code{covariate_baseline}: known factor measured at baseline
+\item \code{exposure_baseline}: exposure measured at baseline
+\item \code{outcome_baseline}: outcome measured at baseline
 \item \code{exposure_followup}: exposure measured at the followup visit (final time)
 \item \code{outcome_followup}: outcome measured at the followup visit (final time)
 \item \code{covariate_followup}: known factor measured at the followup visit (final time)
@@ -32,10 +31,12 @@
 
 \code{causal_mediator_time}: A dataframe with 100 rows and 7 variables:
 \itemize{
-\item \code{covariate_baseline}: known factor measured at baseline (pre-exposure)
-\item \code{exposure_index}: exposure measured at the index visit (time 0)
-\item \code{outcome_index}: outcome measured at the index visit (time 0)
-\item \code{covariate_index}: known factor measured at the index visit (time 0)
+\item \code{covariate_baseline}: known factor measured at baseline
+\item \code{exposure_baseline}: exposure measured at baseline
+\item \code{outcome_baseline}: outcome measured at baseline
+\item \code{covariate_mid}: known factor measured at some mid-point
+\item \code{exposure_mid}: exposure measured at some mid-point
+\item \code{outcome_mid}: outcome measured at some mid-point
 \item \code{exposure_followup}: exposure measured at the followup visit (final time)
 \item \code{outcome_followup}: outcome measured at the followup visit (final time)
 \item \code{covariate_followup}: known factor measured at the followup visit (final time)
@@ -45,14 +46,15 @@
 \itemize{
 \item \code{u1}: unmeasured factor
 \item \code{u2}: unmeasured factor
-\item \code{covariate_baseline}: known factor measured at baseline (pre-exposure)
-\item \code{exposure_index}: exposure measured at the index visit (time 0)
-\item \code{outcome_index}: outcome measured at the index visit (time 0)
-\item \code{covariate_index}: known factor measured at the index visit (time 0)
+\item \code{covariate_baseline}: known factor measured at baseline
+\item \code{exposure_baseline}: exposure measured at baseline
+\item \code{outcome_baseline}: outcome measured at baseline
 \item \code{exposure_followup}: exposure measured at the followup visit (final time)
 \item \code{outcome_followup}: outcome measured at the followup visit (final time)
 \item \code{covariate_followup}: known factor measured at the followup visit (final time)
 }
+
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 400 rows and 12 columns.
 }
 \usage{
 causal_collider_time
@@ -62,6 +64,8 @@ causal_confounding_time
 causal_mediator_time
 
 causal_m_bias_time
+
+causal_quartet_time
 }
 \description{
 These datasets contains 100 observations, each generated under a different
@@ -74,10 +78,9 @@ data generating mechanism:
 }
 }
 \details{
-There are three time points:
+There are two time points:
 \itemize{
 \item baseline
-\item index (time 0, time of exposure classification)
 \item follow up
 }
 
@@ -92,14 +95,14 @@ often not ones we practically see in data analysis.
 \examples{
 
 ## incorrect model because covariate is post-treatment
-lm(outcome_followup ~ exposure_index + covariate_followup,
+lm(outcome_followup ~ exposure_baseline + covariate_followup,
    data = causal_collider_time)
 
 ## correct model because covariate is pre-treatment
 ## even though the true mechanism dictates that the covariate is a collider,
 ## because the pre-exposure variable is used, the collider bias does not
 ## occur.
-lm(outcome_followup ~ exposure_index + covariate_baseline,
+lm(outcome_followup ~ exposure_baseline + covariate_baseline,
    data = causal_collider_time)
 }
 \references{
