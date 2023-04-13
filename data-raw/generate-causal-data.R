@@ -87,7 +87,7 @@ causal_collider_time <- tibble(
 
 usethis::use_data(causal_collider_time, overwrite = TRUE)
 
-set.seed(8734)
+set.seed(456280)
 causal_mediator_time <- tibble(
   exposure_baseline = rnorm(n),
   covariate_baseline = rnorm(n),
