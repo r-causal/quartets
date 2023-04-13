@@ -1,7 +1,7 @@
 Package: quartets
 Type: Package
 Title: Datasets to Help Teach Statistics
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(
     person("Lucy", "D'Agostino McGowan", , "lucydagostino@gmail.com", 
     role = c("aut", "cre"), comment = c(ORCID = "0000-0002-6983-2759"))
