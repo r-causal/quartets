@@ -1,7 +1,19 @@
 ---
 title: "A collider example in a medical context"
-author: "Lucy D'Agostino McGowan"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{a-collider-example-in-a-medical-context}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
 
 This article walks through a specific medical example of a potential collider, building on the example laid out by Luque-Fernandez et al (2019) in [*Paradoxical collider effect in the analysis of non-communicable disease epidemiological data: a reproducible illustration and web application*](https://doi.org/10.1093/ije/dyy275). Here, we use the `causal_collider` and `causal_collider_time` data sets, but suppose that the `exposure` is sodium intake, the `outcome` is systolic blood pressure (SBP), and the `covariate` is urinary protein excretion (proteinuria).
 
@@ -207,5 +219,6 @@ Now that we have assessed balance, let's fit our outcome model and estimate the 
 ```{r}
 lm(outcome_followup ~ exposure_baseline, data = causal_collider_wts, weight = swts)
 ```
+
 And wonderful! Even though we *erroneously* adjusted for proteinuria (it is not actually a confounder!), since it was the *baseline* measurement, we no longer induced collider bias.
 
