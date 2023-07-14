@@ -24,12 +24,12 @@ knitr::opts_chunk$set(
 
 The quartets package is a collection of datasets aimed to help data analysis practitioners and students learn key statistical insights in a hands-on manner. It contains:
 
-* [Anscombe's Quartet](#anscombe's-quartet)
+* [Anscombe's Quartet](#anscombes-quartet)
 * [Causal Quartet](#causal-quartet)
-* Datasaurus Dozen
-* Interaction Triptych
-* Rashomon Quartet
-* Gelman Variation and Heterogeneity Causal Quartets
+* [Datasaurus Dozen](#datasaurus-dozen)
+* [Interaction Triptych](#interaction-triptych)
+* [Rashomon Quartet](#rashomon-quartet)
+* [Gelman Variation and Heterogeneity Causal Quartets](#gelman-variation-and-heterogenity-causal-quartets)
 
 
 ## Installation 
