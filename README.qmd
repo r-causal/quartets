@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 
 The quartets package is a collection of datasets aimed to help data analysis practitioners and students learn key statistical insights in a hands-on manner. It contains:
 
-* [Anscombe's Quartet](README.qmd#sec-anscombe)
+* [Anscombe's Quartet](README.md#sec-anscombe)
 * Causal Quartet
 * Datasaurus Dozen
 * Interaction Triptych
