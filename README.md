@@ -16,8 +16,8 @@ The quartets package is a collection of datasets aimed to help data
 analysis practitioners and students learn key statistical insights in a
 hands-on manner. It contains:
 
-- [Anscombe’s Quartet](README.md#sec-anscombe)
-- Causal Quartet
+- [Anscombe’s Quartet](#anscombe's-quartet)
+- [Causal Quartet](#causal-quartet)
 - Datasaurus Dozen
 - Interaction Triptych
 - Rashomon Quartet

@@ -24,8 +24,8 @@ knitr::opts_chunk$set(
 
 The quartets package is a collection of datasets aimed to help data analysis practitioners and students learn key statistical insights in a hands-on manner. It contains:
 
-* [Anscombe's Quartet](README.md#sec-anscombe)
-* Causal Quartet
+* [Anscombe's Quartet](#anscombe's-quartet)
+* [Causal Quartet](#causal-quartet)
 * Datasaurus Dozen
 * Interaction Triptych
 * Rashomon Quartet
@@ -46,7 +46,7 @@ Or the development version of quartets like so:
 devtools::install_github("r-causal/quartets")
 ```
 
-## Anscombe's Quartet {#sec-anscombe}
+## Anscombe's Quartet 
 
 The goal of the `anscombe_quartet` data set is to help drive home the point that visualizing your data is important. Francis Anscombe generated these four datasets to demonstrate that statistical summary measures alone cannot capture the full relationship between two variables (here, `x` and `y`). Anscombe emphasized the importance of visualizing data prior to calculating summary statistics.
 
