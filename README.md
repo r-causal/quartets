@@ -1,5 +1,5 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- README.md is generated from README.qmd. Please edit that file -->
 
 # quartets: Datasets to help teach statistics <img src="man/figures/logo.png" align="right" height="138" />
 
@@ -16,7 +16,7 @@ The quartets package is a collection of datasets aimed to help data
 analysis practitioners and students learn key statistical insights in a
 hands-on manner. It contains:
 
-- Anscombe’s Quartet
+- [Anscombe’s Quartet](README.qmd#sec-anscombe)
 - Causal Quartet
 - Datasaurus Dozen
 - Interaction Triptych
@@ -25,7 +25,13 @@ hands-on manner. It contains:
 
 ## Installation
 
-You can install the development version of quartets like so:
+You can install the quartets package from CRAN as follows:
+
+``` r
+install.packages("quartets")
+```
+
+Or the development version of quartets like so:
 
 ``` r
 devtools::install_github("r-causal/quartets")
@@ -69,7 +75,8 @@ ggplot(anscombe_quartet, aes(x = x, y = y)) +
   facet_wrap(~dataset)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-2-1.png"
+style="width:100.0%" />
 
 ``` r
 
@@ -110,7 +117,8 @@ ggplot(causal_quartet, aes(x = exposure, y = outcome)) +
   facet_wrap(~dataset)
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png"
+style="width:100.0%" />
 
 ``` r
 causal_quartet |>
@@ -146,7 +154,8 @@ ggplot(datasaurus_dozen, aes(x = x, y = y)) +
   facet_wrap(~dataset)
 ```
 
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-5-1.png"
+style="width:100.0%" />
 
 ``` r
 
@@ -189,7 +198,8 @@ ggplot(interaction_triptych, aes(x, y)) +
   facet_grid(dataset ~ moderator)
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-6-1.png"
+style="width:100.0%" />
 
 ## Rashomon Quartet
 
@@ -257,6 +267,11 @@ exp_rf <- explain_tidymodels(
 ## Neural Network
 
 library(neuralnet)
+#> 
+#> Attaching package: 'neuralnet'
+#> The following object is masked from 'package:dplyr':
+#> 
+#>     compute
 nn <- neuralnet(
   y ~ ., 
   data = rashomon_quartet_train, 
@@ -300,7 +315,8 @@ pd_nn <- model_profile(exp_nn, N=NULL)
 plot(pd_tree, pd_nn, pd_rf, pd_lin)
 ```
 
-<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-10-1.png"
+style="width:100.0%" />
 
 ## Gelman Variation and Heterogeneity Causal Quartets
 
@@ -315,7 +331,8 @@ ggplot(variation_causal_quartet, aes(x = covariate, y = outcome, color = factor(
   labs(color = "exposure group")
 ```
 
-<img src="man/figures/README-unnamed-chunk-11-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-11-1.png"
+style="width:100.0%" />
 
 ``` r
 
@@ -343,7 +360,8 @@ ggplot(heterogeneous_causal_quartet, aes(x = covariate, y = outcome, color = fac
   labs(color = "exposure group")
 ```
 
-<img src="man/figures/README-unnamed-chunk-12-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-12-1.png"
+style="width:100.0%" />
 
 ``` r
 
@@ -364,7 +382,7 @@ heterogeneous_causal_quartet |>
 ## References
 
 Anscombe, F. J. (1973). “Graphs in Statistical Analysis”. American
-Statistician. 27 (1): 17–21. <doi:10.1080/00031305.1973.10478966>. JSTOR
+Statistician. 27 (1): 17–21. doi:10.1080/00031305.1973.10478966. JSTOR
 2682899.
 
 Biecek P, Baniecki H, Krzyziński M, Cook D (2023). Performance is not
@@ -388,7 +406,7 @@ Matejka, J., & Fitzmaurice, G. (2017). Same Stats, Different Graphs:
 Generating Datasets with Varied Appearance and Identical Statistics
 through Simulated Annealing. CHI 2017 Conference proceedings: ACM SIGCHI
 Conference on Human Factors in Computing Systems. Retrieved from
-<https://www.autodesk.com/research/publications/same-stats-different-graphs>
+https://www.autodesk.com/research/publications/same-stats-different-graphs
 
 Rohrer, Julia M., and Ruben C. Arslan. “Precise answers to vague
 questions: Issues with interactions.” Advances in Methods and Practices
