@@ -5,6 +5,8 @@ author: "Lucy D'Agostino McGowan"
 
 This article walks through a specific medical example of a potential collider, building on the example laid out by Luque-Fernandez et al (2019) in [*Paradoxical collider effect in the analysis of non-communicable disease epidemiological data: a reproducible illustration and web application*](https://doi.org/10.1093/ije/dyy275). Here, we use the `causal_collider` and `causal_collider_time` data sets, but suppose that the `exposure` is sodium intake, the `outcome` is systolic blood pressure (SBP), and the `covariate` is urinary protein excretion (proteinuria).
 
+## Setup
+
 **Causal Question**: What is the average treatment effect of 24-hour dietary sodium intake (in grams) on systolic blood pressure? 
 
 **Available data**: We have a data set with three variables `exposure` (sodium intake in grams), `outcome` (systolic blood pressure) and `covariate` (24-hour excretion of urinary protein, proteinuria)
@@ -21,7 +23,11 @@ library(tidyverse)
 causal_collider
 ```
 
-To further help us remain in the real-world example, we can assume these are normalized versions of these variables (as negative values otherwise would not make sense). We can examine the univariate effect of the exposure on the outcome via a scatterplot.
+To further help us remain in the real-world example, we can assume these are normalized versions of these variables (as negative values otherwise would not make sense). 
+
+## Analysis
+
+We can examine the univariate effect of the exposure on the outcome via a scatterplot.
 
 ```{r}
 #| label: scatterplot
@@ -120,7 +126,7 @@ lm(outcome ~ exposure, data = causal_collider_wts, weight = swts)
 ```
 Oh no! This claims that the estimated average treatment effect is 0.34 (we know the true effect should be 1).
 
-## Incorporating time varying data
+## Analysis incorporating time varying data
 
 Luckily, we have some data that includes the *timing* of our measurements. We know that we should only be adjusting for factors that were measured *prior to the exposure* (i.e., we want to adjust for proteinuria at *baseline* not at *follow-up*). Let's look at the time varying dataset:
 
