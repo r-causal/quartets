@@ -99,6 +99,9 @@ application</em></a>. Here, we use the <code>causal_collider</code> and
 <code>exposure</code> is sodium intake, the <code>outcome</code> is
 systolic blood pressure (SBP), and the <code>covariate</code> is urinary
 protein excretion (proteinuria).</p>
+<div class="section level2">
+<h2 id="setup">Setup<a class="anchor" aria-label="anchor" href="#setup"></a>
+</h2>
 <p><strong>Causal Question</strong>: What is the average treatment
 effect of 24-hour dietary sodium intake (in grams) on systolic blood
 pressure?</p>
@@ -134,8 +137,13 @@ and manipulation.</p>
 <span><span class="co">## <span style="color: #949494;"># ℹ 90 more rows</span></span></span></code></pre>
 <p>To further help us remain in the real-world example, we can assume
 these are normalized versions of these variables (as negative values
-otherwise would not make sense). We can examine the univariate effect of
-the exposure on the outcome via a scatterplot.</p>
+otherwise would not make sense).</p>
+</div>
+<div class="section level2">
+<h2 id="analysis">Analysis<a class="anchor" aria-label="anchor" href="#analysis"></a>
+</h2>
+<p>We can examine the univariate effect of the exposure on the outcome
+via a scatterplot.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">causal_collider</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">exposure</span>, y <span class="op">=</span> <span class="va">outcome</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -259,8 +267,9 @@ pressure.</p>
 <span><span class="co">##      0.3284       0.3438</span></span></code></pre>
 <p>Oh no! This claims that the estimated average treatment effect is
 0.34 (we know the true effect should be 1).</p>
+</div>
 <div class="section level2">
-<h2 id="incorporating-time-varying-data">Incorporating time varying data<a class="anchor" aria-label="anchor" href="#incorporating-time-varying-data"></a>
+<h2 id="analysis-incorporating-time-varying-data">Analysis incorporating time varying data<a class="anchor" aria-label="anchor" href="#analysis-incorporating-time-varying-data"></a>
 </h2>
 <p>Luckily, we have some data that includes the <em>timing</em> of our
 measurements. We know that we should only be adjusting for factors that
