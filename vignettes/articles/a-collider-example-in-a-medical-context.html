@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Lucy D’Agostino McGowan">
+
+<title>A collider example in a medical context</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="a-collider-example-in-a-medical-context_files/libs/clipboard/clipboard.min.js"></script>
+<script src="a-collider-example-in-a-medical-context_files/libs/quarto-html/quarto.js"></script>
+<script src="a-collider-example-in-a-medical-context_files/libs/quarto-html/popper.min.js"></script>
+<script src="a-collider-example-in-a-medical-context_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="a-collider-example-in-a-medical-context_files/libs/quarto-html/anchor.min.js"></script>
+<link href="a-collider-example-in-a-medical-context_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="a-collider-example-in-a-medical-context_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="a-collider-example-in-a-medical-context_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="a-collider-example-in-a-medical-context_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="a-collider-example-in-a-medical-context_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">A collider example in a medical context</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Lucy D’Agostino McGowan </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This article walks through a specific medical example of a potential collider, building on the example laid out by Luque-Fernandez et al (2019) in <a href="https://doi.org/10.1093/ije/dyy275"><em>Paradoxical collider effect in the analysis of non-communicable disease epidemiological data: a reproducible illustration and web application</em></a>. Here, we use the <code>causal_collider</code> and <code>causal_collider_time</code> data sets, but suppose that the <code>exposure</code> is sodium intake, the <code>outcome</code> is systolic blood pressure (SBP), and the <code>covariate</code> is urinary protein excretion (proteinuria).</p>
+<p><strong>Causal Question</strong>: What is the average treatment effect of 24-hour dietary sodium intake (in grams) on systolic blood pressure?</p>
+<p><strong>Available data</strong>: We have a data set with three variables <code>exposure</code> (sodium intake in grams), <code>outcome</code> (systolic blood pressure) and <code>covariate</code> (24-hour excretion of urinary protein, proteinuria)</p>
+<p><strong>The truth</strong>: Because this is simulated data, we know the true relationship between sodium intake and systolic blood pressure. In this case the estimated average treatment effect should be <em>1</em>.</p>
+<p>Let’s begin by examining the data. We will additionally load the <code>tidyverse</code> package, which we will use for data visualization and manipulation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quartets)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>causal_collider</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 100 × 3
+   exposure outcome covariate
+      &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+ 1   0.486   1.71       2.24 
+ 2   0.0653  0.669      0.924
+ 3  -1.40   -1.60      -0.999
+ 4  -0.546  -1.73      -2.34 
+ 5  -0.401   0.617      0.207
+ 6  -2.38   -2.15      -3.62 
+ 7   0.652   0.585      0.799
+ 8  -0.574   0.706     -1.31 
+ 9   1.19    1.52       1.16 
+10  -0.664   0.0181    -1.89 
+# ℹ 90 more rows</code></pre>
+</div>
+</div>
+<p>To further help us remain in the real-world example, we can assume these are normalized versions of these variables (as negative values otherwise would not make sense). We can examine the univariate effect of the exposure on the outcome via a scatterplot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(causal_collider, <span class="fu">aes</span>(<span class="at">x =</span> exposure, <span class="at">y =</span> outcome)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">formula =</span> <span class="st">"y ~ x"</span>) <span class="sc">+</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Sodium intake"</span>, <span class="at">y =</span> <span class="st">"Systolic blood pressure"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="a-collider-example-in-a-medical-context_files/figure-html/scatterplot-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>We see a positive relationship between unadjusted 24-hour sodium intake and systolic blood pressure.</p>
+<p>How should we estimate this average treatment effect? The first step is to draw the proposed causal diagram. As the motivating paper explains, “high levels of 24-h excretion of urinary protein (proteinuria) are caused by sustained high SBP [systolic blood pressure] and increased 24-h dietary sodium intake. Therefore, … proteinuria acts as a collider. In a realistic scenario, one might control for proteinuria if physiological factors influencing SBP are not completely understood by the researcher, the relationships between variables are not depicted in a DAG or proteinuria is conceptualized as a confounder. Controlling for proteinuria introduces collider bias.” (Luque-Fernandez et al 2019).</p>
+<p>Let’s suppose we initially erroneously believe that proteinuria is a <em>confounder</em>, that is, we believe it should be adjusted for in the analysis. For continuous exposures, the correlation between the exposure and potential confounder is a recommended way to assess balance (<a href="https://doi.org/10.1515/jci-2014-0022">Zhu et al.&nbsp;2014</a>). Let’s examine the pre-adjustment correlation between the <code>exposure</code> and <code>covariate</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>causal_collider <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">cor</span>(exposure, covariate))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  `cor(exposure, covariate)`
+                       &lt;dbl&gt;
+1                      0.700</code></pre>
+</div>
+</div>
+<p>We observe a strong, positive, correlation between sodium intake and proteinuria. This is well above the rule of thumb for achieving balance of |0.1| (<a href="https://doi.org/10.1515/jci-2014-0022">Zhu et al.&nbsp;2014</a>).</p>
+<p>There are several methods for estimating average treatment effects of continuous exposures, such as inverse probability weighting or g-computation. Let’s use inverse probability weighting. We will begin by creating these weights.</p>
+<p>The first step is to calculate the propensity score model, which will be used in the denominator of the weight. That is, we are building a model to predict sodium intake from proteinuria (<code>denominator_model</code>). We then plug the fitted values from the model into a Gaussian density along with the residual standard deviation, as seen in the second portion of the code below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>denominator_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  exposure <span class="sc">~</span> covariate, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> causal_collider</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>denominators <span class="ot">&lt;-</span> causal_collider <span class="sc">%&gt;%</span> </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">propensity_score =</span> <span class="fu">predict</span>(denominator_model),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">denominator =</span> <span class="fu">dnorm</span>(</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>      exposure, </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>      propensity_score, </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sigma</span>(denominator_model)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    )) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(denominator) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We then fit the numerator of the weights for stability. The average exposure value is plugged into a Gaussian density along with the residual standard deviation, as seen in the second portion of the code below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>numerator_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  exposure <span class="sc">~</span> <span class="dv">1</span>, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> causal_collider</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>numerators <span class="ot">&lt;-</span> causal_collider <span class="sc">%&gt;%</span> </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_exposure =</span> <span class="fu">predict</span>(numerator_model),</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">numerator =</span> <span class="fu">dnorm</span>(</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>      exposure, </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>      mean_exposure, </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sigma</span>(numerator_model)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    )) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(numerator) </span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>causal_collider_wts <span class="ot">&lt;-</span> causal_collider <span class="sc">%&gt;%</span> </span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">swts =</span> numerators <span class="sc">/</span> denominators)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can examine the distribution of these weights:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(causal_collider_wts, <span class="fu">aes</span>(<span class="at">x =</span> swts)) <span class="sc">+</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="a-collider-example-in-a-medical-context_files/figure-html/wts-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>We can then examine the weighted correlation to assess balance the balance after incorporating the propensity score weight.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>causal_collider_wts <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">exposure_w =</span> <span class="fu">sum</span>(swts <span class="sc">*</span> exposure) <span class="sc">/</span> <span class="fu">sum</span>(swts),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">covariate_w =</span> <span class="fu">sum</span>(swts <span class="sc">*</span> covariate) <span class="sc">/</span> <span class="fu">sum</span>(swts),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">numerator =</span> <span class="fu">sum</span>(swts <span class="sc">*</span> (exposure <span class="sc">-</span> exposure_w) <span class="sc">*</span> (covariate <span class="sc">-</span> covariate_w)),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">denom =</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(swts <span class="sc">*</span> (exposure <span class="sc">-</span> exposure_w)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="fu">sum</span>(swts <span class="sc">*</span> (covariate <span class="sc">-</span> covariate_w)<span class="sc">^</span><span class="dv">2</span>)),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">weighted_cor =</span> numerator<span class="sc">/</span>denom</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(weighted_cor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  weighted_cor
+         &lt;dbl&gt;
+1       -0.204</code></pre>
+</div>
+</div>
+<p>Now the weighted correlation is -0.2 (not less than the target, |0.1|, but improved over the unadjusted correlation of 0.7 and the best we can do with this data).</p>
+<p>Now that we have assessed balance, let’s fit our outcome model and estimate the average treatment effect of sodium intake on systolic blood pressure.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(outcome <span class="sc">~</span> exposure, <span class="at">data =</span> causal_collider_wts, <span class="at">weight =</span> swts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = outcome ~ exposure, data = causal_collider_wts, 
+    weights = swts)
+
+Coefficients:
+(Intercept)     exposure  
+     0.3284       0.3438  </code></pre>
+</div>
+</div>
+<p>Oh no! This claims that the estimated average treatment effect is 0.34 (we know the true effect should be 1).</p>
+<section id="incorporating-time-varying-data" class="level2">
+<h2 class="anchored" data-anchor-id="incorporating-time-varying-data">Incorporating time varying data</h2>
+<p>Luckily, we have some data that includes the <em>timing</em> of our measurements. We know that we should only be adjusting for factors that were measured <em>prior to the exposure</em> (i.e., we want to adjust for proteinuria at <em>baseline</em> not at <em>follow-up</em>). Let’s look at the time varying dataset:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>causal_collider_time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 100 × 6
+   exposure_baseline outcome_baseline covariate_baseline exposure_followup
+               &lt;dbl&gt;            &lt;dbl&gt;              &lt;dbl&gt;             &lt;dbl&gt;
+ 1          -1.43              0.287             -0.0963          -1.53   
+ 2           0.0593           -0.978             -1.11            -0.278  
+ 3           0.370             0.348              0.647           -0.00464
+ 4           0.00471           0.851              0.755           -0.806  
+ 5           0.340             1.94               1.19            -0.276  
+ 6          -3.61             -0.235             -0.588           -5.29   
+ 7           1.44             -0.827             -1.13             1.52   
+ 8           1.02             -0.0410             0.689            1.12   
+ 9          -2.43             -2.10              -1.49            -3.94   
+10          -1.26             -2.41              -2.78            -0.442  
+# ℹ 90 more rows
+# ℹ 2 more variables: outcome_followup &lt;dbl&gt;, covariate_followup &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>Let’s suppose we still erroneously think proteinuria is a confounder, but we carefully only adjust for it at baseline. Let’s begin by examining balance.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>causal_collider_time <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">cor</span>(exposure_baseline, covariate_baseline))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  `cor(exposure_baseline, covariate_baseline)`
+                                         &lt;dbl&gt;
+1                                        0.324</code></pre>
+</div>
+</div>
+<p>We still observe a positive relationship greater than our rule of thumb (|0.1|). Now let’s create our propensity score weights.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>denominator_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  exposure_baseline <span class="sc">~</span> covariate_baseline, </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> causal_collider_time</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>denominators <span class="ot">&lt;-</span> causal_collider_time <span class="sc">%&gt;%</span> </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">propensity_score =</span> <span class="fu">predict</span>(denominator_model),</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">denominator =</span> <span class="fu">dnorm</span>(</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>      exposure_baseline, </span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>      propensity_score, </span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sigma</span>(denominator_model)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    )) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(denominator) </span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>numerator_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  exposure_baseline <span class="sc">~</span> <span class="dv">1</span>, </span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> causal_collider_time</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>numerators <span class="ot">&lt;-</span> causal_collider_time <span class="sc">%&gt;%</span> </span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_exposure =</span> <span class="fu">predict</span>(numerator_model),</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">numerator =</span> <span class="fu">dnorm</span>(</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>      exposure_baseline, </span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>      mean_exposure, </span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sigma</span>(numerator_model)</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>    )) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(numerator) </span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>causal_collider_wts <span class="ot">&lt;-</span> causal_collider_time <span class="sc">%&gt;%</span> </span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">swts =</span> numerators <span class="sc">/</span> denominators)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can again examine the distribution of these weights:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(causal_collider_wts, <span class="fu">aes</span>(<span class="at">x =</span> swts)) <span class="sc">+</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="a-collider-example-in-a-medical-context_files/figure-html/wts-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>We can then examine the weighted correlation to assess balance the balance after incorporating the propensity score weight.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>causal_collider_wts <span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">exposure_w =</span> <span class="fu">sum</span>(swts <span class="sc">*</span> exposure_baseline) <span class="sc">/</span> <span class="fu">sum</span>(swts),</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">covariate_w =</span> <span class="fu">sum</span>(swts <span class="sc">*</span> covariate_baseline) <span class="sc">/</span> <span class="fu">sum</span>(swts),</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">numerator =</span> <span class="fu">sum</span>(swts <span class="sc">*</span> (exposure_baseline <span class="sc">-</span> exposure_w) <span class="sc">*</span> (covariate_baseline <span class="sc">-</span> covariate_w)),</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">denom =</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(swts <span class="sc">*</span> (exposure_baseline <span class="sc">-</span> exposure_w)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="fu">sum</span>(swts <span class="sc">*</span> (covariate_baseline <span class="sc">-</span> covariate_w)<span class="sc">^</span><span class="dv">2</span>)),</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">weighted_cor =</span> numerator<span class="sc">/</span>denom</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(weighted_cor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  weighted_cor
+         &lt;dbl&gt;
+1       0.0476</code></pre>
+</div>
+</div>
+<p>Great! We have acheived balance (i.e., the weighted correlation is less than the rule of thumb, |0.1|).</p>
+<p>Now that we have assessed balance, let’s fit our outcome model and estimate the average treatment effect of sodium intake on systolic blood pressure. Note that we are careful to use the <em>follow-up</em> measurement for the outcome.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(outcome_followup <span class="sc">~</span> exposure_baseline, <span class="at">data =</span> causal_collider_wts, <span class="at">weight =</span> swts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = outcome_followup ~ exposure_baseline, data = causal_collider_wts, 
+    weights = swts)
+
+Coefficients:
+      (Intercept)  exposure_baseline  
+         -0.07298            1.03421  </code></pre>
+</div>
+</div>
+<p>And wonderful! Even though we <em>erroneously</em> adjusted for proteinuria (it is not actually a confounder!), since it was the <em>baseline</em> measurement, we no longer induced collider bias.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
