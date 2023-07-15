@@ -31,7 +31,6 @@ The quartets package is a collection of datasets aimed to help data analysis pra
 * [Rashomon Quartet](#rashomon-quartet)
 * [Gelman Variation and Heterogeneity Causal Quartets](#gelman-variation-and-heterogenity-causal-quartets)
 
-
 ## Installation 
 
 You can install the quartets package from CRAN as follows:

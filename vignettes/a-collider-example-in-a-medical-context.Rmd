@@ -115,7 +115,7 @@ ggplot(causal_collider_wts, aes(x = swts)) +
 ```
 
 
-We can then examine the weighted correlation to assess balance the balance after incorporating the propensity score weight.
+We can then examine the weighted correlation to assess the balance after incorporating the propensity score weight.
 
 ```{r}
 causal_collider_wts |>
