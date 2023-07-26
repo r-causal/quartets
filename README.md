@@ -323,7 +323,7 @@ style="width:100.0%" />
 
 The first set of data `variation_causal_quartet` demonstrates that you
 can get the same average treatment effect despite variability across
-some pre-treatment characteristic (here called `z`).
+some pre-treatment characteristic (here called `covariate`).
 
 ``` r
 ggplot(variation_causal_quartet, aes(x = covariate, y = outcome, color = factor(exposure))) + 

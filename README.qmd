@@ -254,7 +254,7 @@ plot(pd_tree, pd_nn, pd_rf, pd_lin)
 
 ## Gelman Variation and Heterogeneity Causal Quartets
 
-The first set of data `variation_causal_quartet` demonstrates that you can get the same average treatment effect despite variability across some pre-treatment characteristic (here called `z`).
+The first set of data `variation_causal_quartet` demonstrates that you can get the same average treatment effect despite variability across some pre-treatment characteristic (here called `covariate`).
 
 ```{r}
 ggplot(variation_causal_quartet, aes(x = covariate, y = outcome, color = factor(exposure))) + 
