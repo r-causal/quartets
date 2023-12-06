@@ -26,6 +26,6 @@ X ~ U1 + N(0, 1) (exposure)
 Y ~ X + U2 + N(0, 1) (outcome)
 }
 \references{
-D'Agostino McGowan L, Barrett M (2023). Causal inference is not a statistical problem. Preprint arXiv:2304.02683v1.
+Lucy D’Agostino McGowan, Travis Gerke & Malcolm Barrett (2023) Causal inference is not just a statistics problem, Journal of Statistics and Data Science Education, DOI: 10.1080/26939169.2023.2276446
 }
 \keyword{datasets}

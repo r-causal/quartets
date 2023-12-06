@@ -131,12 +131,12 @@ causal_quartet |>
   knitr::kable()
 ```
 
-| Data generating mechanism | Y \~ X | Y \~ X + Z | Correlation of X and Z |
-|:--------------------------|-------:|-----------:|-----------------------:|
-| \(1\) Collider            |      1 |       0.55 |                    0.7 |
-| \(2\) Confounder          |      1 |       0.50 |                    0.7 |
-| \(3\) Mediator            |      1 |       0.00 |                    0.7 |
-| \(4\) M-Bias              |      1 |       0.88 |                    0.7 |
+| Data generating mechanism | Y ~ X | Y ~ X + Z | Correlation of X and Z |
+|:--------------------------|------:|----------:|-----------------------:|
+| \(1\) Collider            |     1 |      0.55 |                    0.7 |
+| \(2\) Confounder          |     1 |      0.50 |                    0.7 |
+| \(3\) Mediator            |     1 |      0.00 |                    0.7 |
+| \(4\) M-Bias              |     1 |      0.88 |                    0.7 |
 
 ## Datasaurus Dozen
 
@@ -389,8 +389,9 @@ Statistician. 27 (1): 17–21. doi:10.1080/00031305.1973.10478966. JSTOR
 Biecek P, Baniecki H, Krzyziński M, Cook D (2023). Performance is not
 enough: the story of Rashomon’s quartet. Preprint arXiv:2302.13356v2.
 
-D’Agostino McGowan L, Barrett M (2023). Causal inference is not a
-statistical problem. Preprint arXiv:2304.02683v1.
+Lucy D’Agostino McGowan, Travis Gerke & Malcolm Barrett (2023) Causal
+inference is not just a statistics problem, Journal of Statistics and
+Data Science Education, DOI: 10.1080/26939169.2023.2276446
 
 Davies R, Locke S, D’Agostino McGowan L (2022). *datasauRus: Datasets
 from the Datasaurus Dozen*. R package version 0.1.6,

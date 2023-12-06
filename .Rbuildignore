@@ -2,7 +2,7 @@
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^data-raw$
-^README\.Rmd$
+^README\.qmd$
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
