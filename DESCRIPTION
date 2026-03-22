@@ -12,8 +12,9 @@ Description: In the spirit of Anscombe's quartet, this package includes datasets
    assumptions about the data generating mechanism are needed when estimating 
    causal effects. The package includes "Anscombe's Quartet" (Anscombe 1973) <doi:10.1080/00031305.1973.10478966>,
    D'Agostino McGowan & Barrett (2023) "Causal Quartet" <doi:10.1080/26939169.2023.2276446>, 
-   "Datasaurus Dozen" (Matejka & Fitzmaurice 2017), "Interaction Triptych" (Rohrer & Arslan 2021) <doi:10.1177/25152459211007368>, "Rashomon Quartet" (Biecek et al. 2023) <doi:10.48550/arXiv.2302.13356>, and
-   Gelman "Variation and Heterogeneity Causal Quartets" (Gelman et al. 2023) <doi:10.48550/arXiv.2302.12878>.
+   "Datasaurus Dozen" (Matejka & Fitzmaurice 2017), "Interaction Triptych" (Rohrer & Arslan 2021) <doi:10.1177/25152459211007368>, "Rashomon Quartet" (Biecek et al. 2023) <doi:10.48550/arXiv.2302.13356>,
+   Gelman "Variation and Heterogeneity Causal Quartets" (Gelman et al. 2023) <doi:10.48550/arXiv.2302.12878>, and 
+   an AUROC quartet for binary classification problems.
 License: MIT + file LICENSE
 URL: https://github.com/r-causal/quartets,
     https://r-causal.github.io/quartets/

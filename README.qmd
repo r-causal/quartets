@@ -30,6 +30,7 @@ The quartets package is a collection of datasets aimed to help data analysis pra
 * [Interaction Triptych](#interaction-triptych)
 * [Rashomon Quartet](#rashomon-quartet)
 * [Gelman Variation and Heterogeneity Causal Quartets](#gelman-variation-and-heterogenity-causal-quartets)
+* [AUROC Quartet](#auroc-quartet)
 
 ## Installation 
 
@@ -282,6 +283,50 @@ heterogeneous_causal_quartet |>
   mutate(ATE = round(coef(lm(outcome ~ exposure, data = data))[2], 2)) |>
   select(-data, dataset) |>
   knitr::kable()
+```
+
+## AUROC Quartet 
+
+Similar to the Rashomon Quartet, this dataset demonstrates that the popular AUROC model evaluation metric for predictive classification models does not tell the full story. The `auroc_quartet` dataset contains four datasets consisting of a predictive score and true target. Each score-target pair has the same AUC but the shapes of the ROC plots are materially different, leading to large differences in other fit-for-purpose evaluation metrics like precision and recall. 
+
+Data is generated from the [`roctet`](https://github.com/emilyriederer/roctet) python package.
+
+## Example
+
+```{r}
+#| message: false
+#| warning: false
+#| cache: false
+library(tidyverse)
+library(tidymodels)
+library(patchwork)
+library(quartets)
+
+auroc_quartet_prep <-
+  auroc_quartet |>
+  group_by(id) |>
+  mutate(
+    target = factor(target, levels = c(0,1), labels = c(0,1)),
+    pred_at_10 = factor(as.integer(score > quantile(score, 0.9)))
+    )
+
+gg_auroc <- autoplot(
+  roc_curve(auroc_quartet_prep, target, score, event_level = "second")
+) + labs(title = "AUROC")
+
+gg_gain <- autoplot(
+  gain_curve(auroc_quartet_prep, target, score, event_level = "second")
+) + labs(title = "Gain Curve")
+
+(gg_auroc + gg_gain)
+
+auroc_quartet_prep |>
+  summarize(
+    auroc = roc_auc_vec(target, score,event_level = "second"),
+    precision_at_10 = precision_vec(target, pred_at_10, event_level = "second"),
+    recall_at_10 = recall_vec(target, pred_at_10, event_level = "second")
+  ) |>
+  knitr::kable(digits = 2)
 ```
 
 
