@@ -1,0 +1,4 @@
+# License
+
+    YEAR: 2023
+    COPYRIGHT HOLDER: Lucy D'Agostino McGowan

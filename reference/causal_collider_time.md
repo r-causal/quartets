@@ -1,0 +1,165 @@
+# Time-varying Causal Quartet Data
+
+These datasets contains 100 observations, each generated under a
+different data generating mechanism:
+
+- \(1\) A collider
+
+- \(2\) A confounder
+
+- \(3\) A mediator
+
+- \(4\) M-bias
+
+## Usage
+
+``` r
+causal_collider_time
+
+causal_confounding_time
+
+causal_mediator_time
+
+causal_m_bias_time
+
+causal_quartet_time
+```
+
+## Format
+
+`causal_collider_time`: A dataframe with 100 rows and 7 variables:
+
+- `covariate_baseline`: known factor measured at baseline
+
+- `exposure_baseline`: exposure measured at baseline
+
+- `outcome_baseline`: outcome measured at baseline
+
+- `exposure_followup`: exposure measured at the followup visit (final
+  time)
+
+- `outcome_followup`: outcome measured at the followup visit (final
+  time)
+
+- `covariate_followup`: known factor measured at the followup visit
+  (final time)
+
+`causal_confounding_time`: A dataframe with 100 rows and 7 variables:
+
+- `covariate_baseline`: known factor measured at baseline
+
+- `exposure_baseline`: exposure measured at baseline
+
+- `outcome_baseline`: outcome measured at baseline
+
+- `exposure_followup`: exposure measured at the followup visit (final
+  time)
+
+- `outcome_followup`: outcome measured at the followup visit (final
+  time)
+
+- `covariate_followup`: known factor measured at the followup visit
+  (final time)
+
+`causal_mediator_time`: A dataframe with 100 rows and 7 variables:
+
+- `covariate_baseline`: known factor measured at baseline
+
+- `exposure_baseline`: exposure measured at baseline
+
+- `outcome_baseline`: outcome measured at baseline
+
+- `covariate_mid`: known factor measured at some mid-point
+
+- `exposure_mid`: exposure measured at some mid-point
+
+- `outcome_mid`: outcome measured at some mid-point
+
+- `exposure_followup`: exposure measured at the followup visit (final
+  time)
+
+- `outcome_followup`: outcome measured at the followup visit (final
+  time)
+
+- `covariate_followup`: known factor measured at the followup visit
+  (final time)
+
+`causal_m_bias_time`: A dataframe with 100 rows and 9 variables:
+
+- `u1`: unmeasured factor
+
+- `u2`: unmeasured factor
+
+- `covariate_baseline`: known factor measured at baseline
+
+- `exposure_baseline`: exposure measured at baseline
+
+- `outcome_baseline`: outcome measured at baseline
+
+- `exposure_followup`: exposure measured at the followup visit (final
+  time)
+
+- `outcome_followup`: outcome measured at the followup visit (final
+  time)
+
+- `covariate_followup`: known factor measured at the followup visit
+  (final time)
+
+An object of class `tbl_df` (inherits from `tbl`, `data.frame`) with 400
+rows and 12 columns.
+
+## Details
+
+There are two time points:
+
+- baseline
+
+- follow up
+
+These datasets help demonstrate that a model that includes only
+pre-exposure covariates (that is, only adjusting for covariates measured
+at baseline), will be less prone to potential biases. Adjusting for only
+pre-exposure covariates "solves" the bias in datasets 1-3. It does not
+solve the data generated under the "M-bias" scenario, however this is
+more of a toy example, it has been shown many times that the assumptions
+needed for this M-bias to hold are often not ones we practically see in
+data analysis.
+
+## References
+
+Lucy D’Agostino McGowan, Travis Gerke & Malcolm Barrett (2023) Causal
+inference is not just a statistics problem, Journal of Statistics and
+Data Science Education, DOI: 10.1080/26939169.2023.2276446
+
+## Examples
+
+``` r
+## incorrect model because covariate is post-treatment
+lm(outcome_followup ~ exposure_baseline + covariate_followup,
+   data = causal_collider_time)
+#> 
+#> Call:
+#> lm(formula = outcome_followup ~ exposure_baseline + covariate_followup, 
+#>     data = causal_collider_time)
+#> 
+#> Coefficients:
+#>        (Intercept)   exposure_baseline  covariate_followup  
+#>           -0.05656             0.41288             0.46683  
+#> 
+
+## correct model because covariate is pre-treatment
+## even though the true mechanism dictates that the covariate is a collider,
+## because the pre-exposure variable is used, the collider bias does not
+## occur.
+lm(outcome_followup ~ exposure_baseline + covariate_baseline,
+   data = causal_collider_time)
+#> 
+#> Call:
+#> lm(formula = outcome_followup ~ exposure_baseline + covariate_baseline, 
+#>     data = causal_collider_time)
+#> 
+#> Coefficients:
+#>        (Intercept)   exposure_baseline  covariate_baseline  
+#>           -0.10534             1.00312            -0.01173  
+#> 
+```
