@@ -16,21 +16,21 @@ anscombe_quartet <- anscombe |>
 usethis::use_data(anscombe_quartet, overwrite = TRUE)
 
 anscombe_linear <- anscombe_quartet |>
-  filter(dataset == 1)
+  filter(dataset == "(1) Linear")
 
 usethis::use_data(anscombe_linear, overwrite = TRUE)
 
 anscombe_nonlinear <- anscombe_quartet |>
-  filter(dataset == 3)
+  filter(dataset == "(2) Nonlinear")
 
 usethis::use_data(anscombe_nonlinear, overwrite = TRUE)
 
 anscombe_outlier <- anscombe_quartet |>
-  filter(dataset == 3)
+  filter(dataset == "(3) Outlier")
 
 usethis::use_data(anscombe_outlier, overwrite = TRUE)
 
 anscombe_leverage <- anscombe_quartet |>
-  filter(dataset == 4)
+  filter(dataset == "(4) Leverage")
 
 usethis::use_data(anscombe_leverage, overwrite = TRUE)
