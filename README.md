@@ -6,6 +6,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/r-causal/quartets/workflows/R-CMD-check/badge.svg)](https://github.com/r-causal/quartets/actions)
+[![R-universe
+version](https://r-causal.r-universe.dev/quartets/badges/version)](https://r-causal.r-universe.dev/quartets)
 <!-- badges: end -->
 
 **Authors:** [Lucy D’Agostino
@@ -32,10 +34,22 @@ You can install the quartets package from CRAN as follows:
 install.packages("quartets")
 ```
 
-Or the development version of quartets like so:
+You can install the development version of quartets from
+[r-causal.r-universe.dev](https://r-causal.r-universe.dev/) with:
 
 ``` r
-devtools::install_github("r-causal/quartets")
+install.packages(
+  "quartets",
+  repos = c("https://r-causal.r-universe.dev", getOption("repos"))
+)
+```
+
+You can also install the development version of quartets from source
+from [GitHub](https://github.com/r-causal/quartets) with:
+
+``` r
+# install.packages("pak")
+pak::pak("r-causal/quartets")
 ```
 
 ## Anscombe’s Quartet
