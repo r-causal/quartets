@@ -134,6 +134,7 @@ Data Science Education, DOI: 10.1080/26939169.2023.2276446
 ## Examples
 
 ``` r
+
 ## incorrect model because covariate is post-treatment
 lm(outcome_followup ~ exposure_baseline + covariate_followup,
    data = causal_collider_time)

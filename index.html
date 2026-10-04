@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Datasets to Help Teach Statistics • quartets</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Datasets to Help Teach Statistics">
 <meta name="description" content="In the spirit of Anscombes quartet, this package includes datasets that demonstrate the importance of visualizing your data, the importance of not relying on statistical summary measures alone, and why additional assumptions about the data generating mechanism are needed when estimating causal effects. The package includes &quot;Anscombes Quartet&quot; (Anscombe 1973) &lt;doi:10.1080/00031305.1973.10478966&gt;, D'Agostino McGowan &amp; Barrett (2023) &quot;Causal Quartet&quot; &lt;doi:10.1080/26939169.2023.2276446&gt;, &quot;Datasaurus Dozen&quot; (Matejka &amp; Fitzmaurice 2017), &quot;Interaction Triptych&quot; (Rohrer &amp; Arslan 2021) &lt;doi:10.1177/25152459211007368&gt;, &quot;Rashomon Quartet&quot; (Biecek et al. 2023) &lt;doi:10.48550/arXiv.2302.13356&gt;, and Gelman &quot;Variation and Heterogeneity Causal Quartets&quot; (Gelman et al. 2023) &lt;doi:10.48550/arXiv.2302.12878&gt;.">
@@ -76,9 +76,16 @@
 <p>You can install the quartets package from CRAN as follows:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"quartets"</span><span class="op">)</span></span></code></pre></div>
-<p>Or the development version of quartets like so:</p>
+<p>You can install the development version of quartets from <a href="https://r-causal.r-universe.dev/" class="external-link">r-causal.r-universe.dev</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"r-causal/quartets"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span></span>
+<span>  <span class="st">"quartets"</span>,</span>
+<span>  repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://r-causal.r-universe.dev"</span>, <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>You can also install the development version of quartets from source from <a href="https://github.com/r-causal/quartets" class="external-link">GitHub</a> with:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"r-causal/quartets"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="anscombes-quartet">Anscombe’s Quartet<a class="anchor" aria-label="anchor" href="#anscombes-quartet"></a>
@@ -114,7 +121,7 @@
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-causal/quartets" class="external-link">quartets</a></span><span class="op">)</span></span>
 <span></span>
@@ -123,7 +130,7 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html" class="external-link">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, formula <span class="op">=</span> <span class="st">"y ~ x"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">dataset</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" style="width:100.0%"></p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">anscombe_quartet</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">dataset</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -134,7 +141,7 @@
 <span>            cor <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html" class="external-link">cor</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
-<thead><tr class="header">
+<thead><tr>
 <th align="left">dataset</th>
 <th align="right">mean_x</th>
 <th align="right">var_x</th>
@@ -143,7 +150,7 @@
 <th align="right">cor</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="left">(1) Linear</td>
 <td align="right">9</td>
 <td align="right">11</td>
@@ -151,7 +158,7 @@
 <td align="right">4.13</td>
 <td align="right">0.82</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">(2) Nonlinear</td>
 <td align="right">9</td>
 <td align="right">11</td>
@@ -159,7 +166,7 @@
 <td align="right">4.13</td>
 <td align="right">0.82</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">(3) Outlier</td>
 <td align="right">9</td>
 <td align="right">11</td>
@@ -167,7 +174,7 @@
 <td align="right">4.12</td>
 <td align="right">0.82</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">(4) Leverage</td>
 <td align="right">9</td>
 <td align="right">11</td>
@@ -186,13 +193,13 @@
 <div class="section level2">
 <h2 id="example-1">Example<a class="anchor" aria-label="anchor" href="#example-1"></a>
 </h2>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">causal_quartet</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">exposure</span>, y <span class="op">=</span> <span class="va">outcome</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html" class="external-link">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, formula <span class="op">=</span> <span class="st">"y ~ x"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">dataset</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-1.png" style="width:100.0%"></p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">causal_quartet</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/nest_by.html" class="external-link">nest_by</a></span><span class="op">(</span><span class="va">dataset</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>`Y ~ X` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">outcome</span> <span class="op">~</span> <span class="va">exposure</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="fl">2</span><span class="op">)</span>,</span>
@@ -207,32 +214,32 @@
 <col width="15%">
 <col width="34%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th align="left">Data generating mechanism</th>
 <th align="right">Y ~ X</th>
 <th align="right">Y ~ X + Z</th>
 <th align="right">Correlation of X and Z</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="left">(1) Collider</td>
 <td align="right">1</td>
 <td align="right">0.55</td>
 <td align="right">0.7</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">(2) Confounder</td>
 <td align="right">1</td>
 <td align="right">0.50</td>
 <td align="right">0.7</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">(3) Mediator</td>
 <td align="right">1</td>
 <td align="right">0.00</td>
 <td align="right">0.7</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">(4) M-Bias</td>
 <td align="right">1</td>
 <td align="right">0.88</td>
@@ -249,13 +256,13 @@
 <div class="section level2">
 <h2 id="example-2">Example<a class="anchor" aria-label="anchor" href="#example-2"></a>
 </h2>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">datasaurus_dozen</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html" class="external-link">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, formula <span class="op">=</span> <span class="st">"y ~ x"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">dataset</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-5-1.png" style="width:100.0%"></p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">datasaurus_dozen</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">dataset</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -266,7 +273,7 @@
 <span>            cor <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html" class="external-link">cor</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
-<thead><tr class="header">
+<thead><tr>
 <th align="left">dataset</th>
 <th align="right">mean_x</th>
 <th align="right">var_x</th>
@@ -275,7 +282,7 @@
 <th align="right">cor</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="left">away</td>
 <td align="right">54.27</td>
 <td align="right">281.23</td>
@@ -283,7 +290,7 @@
 <td align="right">725.75</td>
 <td align="right">-0.06</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">bullseye</td>
 <td align="right">54.27</td>
 <td align="right">281.21</td>
@@ -291,7 +298,7 @@
 <td align="right">725.53</td>
 <td align="right">-0.07</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">circle</td>
 <td align="right">54.27</td>
 <td align="right">280.90</td>
@@ -299,7 +306,7 @@
 <td align="right">725.23</td>
 <td align="right">-0.07</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">dino</td>
 <td align="right">54.26</td>
 <td align="right">281.07</td>
@@ -307,7 +314,7 @@
 <td align="right">725.52</td>
 <td align="right">-0.06</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">dots</td>
 <td align="right">54.26</td>
 <td align="right">281.16</td>
@@ -315,7 +322,7 @@
 <td align="right">725.24</td>
 <td align="right">-0.06</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">h_lines</td>
 <td align="right">54.26</td>
 <td align="right">281.10</td>
@@ -323,7 +330,7 @@
 <td align="right">725.76</td>
 <td align="right">-0.06</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">high_lines</td>
 <td align="right">54.27</td>
 <td align="right">281.12</td>
@@ -331,7 +338,7 @@
 <td align="right">725.76</td>
 <td align="right">-0.07</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">slant_down</td>
 <td align="right">54.27</td>
 <td align="right">281.12</td>
@@ -339,7 +346,7 @@
 <td align="right">725.55</td>
 <td align="right">-0.07</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">slant_up</td>
 <td align="right">54.27</td>
 <td align="right">281.19</td>
@@ -347,7 +354,7 @@
 <td align="right">725.69</td>
 <td align="right">-0.07</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">star</td>
 <td align="right">54.27</td>
 <td align="right">281.20</td>
@@ -355,7 +362,7 @@
 <td align="right">725.24</td>
 <td align="right">-0.06</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">v_lines</td>
 <td align="right">54.27</td>
 <td align="right">281.23</td>
@@ -363,7 +370,7 @@
 <td align="right">725.64</td>
 <td align="right">-0.07</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">wide_lines</td>
 <td align="right">54.27</td>
 <td align="right">281.23</td>
@@ -371,7 +378,7 @@
 <td align="right">725.65</td>
 <td align="right">-0.07</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">x_shape</td>
 <td align="right">54.26</td>
 <td align="right">281.23</td>
@@ -386,7 +393,7 @@
 <h2 id="interaction-triptych">Interaction Triptych<a class="anchor" aria-label="anchor" href="#interaction-triptych"></a>
 </h2>
 <p>This set of 3 datasets demonstrating that while the slopes estimated by a simple linear interaction model may be the same, the underlying data-generating mechanisms can be vastly different.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">interaction_triptych</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>shape <span class="op">=</span> <span class="st">"o"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html" class="external-link">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, formula <span class="op">=</span> <span class="st">"y ~ x"</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -397,11 +404,11 @@
 <h2 id="rashomon-quartet">Rashomon Quartet<a class="anchor" aria-label="anchor" href="#rashomon-quartet"></a>
 </h2>
 <p>This dataset demonstrates that model diagnostics alone (such as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math> and RMSE) do not tell the full story of a prediction model. Here, there are three predictors and one outcome. Models fit using a regression tree, linear regression, random forest, and neural network all yield the same <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math> and RMSE, but are finding different relationships between the predictors, as evidenced by the below partial dependence plots.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1568</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidymodels.tidymodels.org" class="external-link">tidymodels</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ModelOriented.github.io/DALEXtra/" class="external-link">DALEXtra</a></span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rec</span> <span class="op">&lt;-</span> <span class="fu">recipe</span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">rashomon_quartet_train</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">## Regression Tree</span></span>
@@ -470,7 +477,7 @@
 <span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>, </span>
 <span>  label <span class="op">=</span> <span class="st">"neural network"</span><span class="op">)</span></span></code></pre></div>
 <p>We can see that each of these models “perform” the same.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">exp_tree</span>, <span class="va">exp_lin</span>, <span class="va">exp_rf</span>, <span class="va">exp_nn</span><span class="op">)</span>, <span class="va">model_performance</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
 <span>  model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Decision tree"</span>, <span class="st">"Linear regression"</span>, <span class="st">"Random forest"</span>, <span class="st">"Neural network"</span><span class="op">)</span>,</span>
@@ -479,28 +486,28 @@
 <span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
-<thead><tr class="header">
+<thead><tr>
 <th align="left">model</th>
 <th align="right">R2</th>
 <th align="right">RMSE</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="left">Decision tree</td>
 <td align="right">0.73</td>
 <td align="right">0.35</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">Linear regression</td>
 <td align="right">0.73</td>
 <td align="right">0.35</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">Random forest</td>
 <td align="right">0.73</td>
 <td align="right">0.35</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">Neural network</td>
 <td align="right">0.73</td>
 <td align="right">0.35</td>
@@ -508,7 +515,7 @@
 </tbody>
 </table>
 <p>But the way they fit to the actual predictors is quite different:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pd_tree</span> <span class="op">&lt;-</span> <span class="fu">model_profile</span><span class="op">(</span><span class="va">exp_tree</span>, N<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span></span>
 <span><span class="va">pd_lin</span> <span class="op">&lt;-</span> <span class="fu">model_profile</span><span class="op">(</span><span class="va">exp_lin</span>, N<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span></span>
 <span><span class="va">pd_rf</span> <span class="op">&lt;-</span> <span class="fu">model_profile</span><span class="op">(</span><span class="va">exp_rf</span>, N<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span></span>
@@ -520,13 +527,13 @@
 <h2 id="gelman-variation-and-heterogeneity-causal-quartets">Gelman Variation and Heterogeneity Causal Quartets<a class="anchor" aria-label="anchor" href="#gelman-variation-and-heterogeneity-causal-quartets"></a>
 </h2>
 <p>The first set of data <code>variation_causal_quartet</code> demonstrates that you can get the same average treatment effect despite variability across some pre-treatment characteristic (here called <code>covariate</code>).</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">variation_causal_quartet</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">covariate</span>, y <span class="op">=</span> <span class="va">outcome</span>, color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">exposure</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">dataset</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"exposure group"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-11-1.png" style="width:100.0%"></p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">variation_causal_quartet</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/nest_by.html" class="external-link">nest_by</a></span><span class="op">(</span><span class="va">dataset</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -534,37 +541,37 @@
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">data</span>, <span class="va">dataset</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
-<thead><tr class="header">
+<thead><tr>
 <th align="left">dataset</th>
 <th align="right">ATE</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="left">(1) Constant effect</td>
 <td align="right">0.1</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">(2) Low variation</td>
 <td align="right">0.1</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">(3) High variation</td>
 <td align="right">0.1</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">(4) Occasional large effects</td>
 <td align="right">0.1</td>
 </tr>
 </tbody>
 </table>
 <p>The <code>heterogeneous_causal_quartet</code> demonstrates how you can observe the same causal effect under different patterns of treatment heterogeneity.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">heterogeneous_causal_quartet</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">covariate</span>, y <span class="op">=</span> <span class="va">outcome</span>, color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">exposure</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">dataset</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"exposure group"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-12-1.png" style="width:100.0%"></p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">heterogeneous_causal_quartet</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/nest_by.html" class="external-link">nest_by</a></span><span class="op">(</span><span class="va">dataset</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -572,24 +579,24 @@
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">data</span>, <span class="va">dataset</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
-<thead><tr class="header">
+<thead><tr>
 <th align="left">dataset</th>
 <th align="right">ATE</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="left">(1) Linear interaction</td>
 <td align="right">0.1</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">(2) No effect then steady increase</td>
 <td align="right">0.1</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">(3) Plateau</td>
 <td align="right">0.1</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">(4) Intermediate zone with large effects</td>
 <td align="right">0.1</td>
 </tr>
@@ -645,6 +652,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://github.com/r-causal/quartets/actions" class="external-link"><img src="https://github.com/r-causal/quartets/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://r-causal.r-universe.dev/quartets" class="external-link"><img src="https://r-causal.r-universe.dev/quartets/badges/version" alt="R-universe version"></a></li>
 </ul>
 </div>
 
@@ -657,7 +665,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer>

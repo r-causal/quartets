@@ -28,6 +28,7 @@ Let’s begin by examining the data. We will additionally load the
 manipulation.
 
 ``` r
+
 library(quartets)
 library(tidyverse)
 causal_collider
@@ -57,6 +58,7 @@ We can examine the univariate effect of the exposure on the outcome via
 a scatterplot.
 
 ``` r
+
 ggplot(causal_collider, aes(x = exposure, y = outcome)) +
   geom_point() + 
   geom_smooth(method = "lm", formula = "y ~ x") + 
@@ -87,6 +89,7 @@ al. 2014](https://doi.org/10.1515/jci-2014-0022)). Let’s examine the
 pre-adjustment correlation between the `exposure` and `covariate`.
 
 ``` r
+
 causal_collider |>
   summarise(cor(exposure, covariate))
 #> # A tibble: 1 × 1
@@ -112,6 +115,7 @@ the residual standard deviation, as seen in the second portion of the
 code below.
 
 ``` r
+
 denominator_model <- lm(
   exposure ~ covariate, 
   data = causal_collider
@@ -134,6 +138,7 @@ residual standard deviation, as seen in the second portion of the code
 below.
 
 ``` r
+
 numerator_model <- lm(
   exposure ~ 1, 
   data = causal_collider
@@ -156,6 +161,7 @@ causal_collider_wts <- causal_collider %>%
 We can examine the distribution of these weights:
 
 ``` r
+
 ggplot(causal_collider_wts, aes(x = swts)) + 
   geom_histogram(bins = 30)
 ```
@@ -166,6 +172,7 @@ We can then examine the weighted correlation to assess the balance after
 incorporating the propensity score weight.
 
 ``` r
+
 causal_collider_wts |>
   summarise(
     exposure_w = sum(swts * exposure) / sum(swts),
@@ -190,6 +197,7 @@ estimate the average treatment effect of sodium intake on systolic blood
 pressure.
 
 ``` r
+
 lm(outcome ~ exposure, data = causal_collider_wts, weight = swts)
 #> 
 #> Call:
@@ -213,6 +221,7 @@ proteinuria at *baseline* not at *follow-up*). Let’s look at the time
 varying dataset:
 
 ``` r
+
 causal_collider_time
 #> # A tibble: 100 × 6
 #>    exposure_baseline outcome_baseline covariate_baseline exposure_followup
@@ -236,6 +245,7 @@ but we carefully only adjust for it at baseline. Let’s begin by
 examining balance.
 
 ``` r
+
 causal_collider_time |>
   summarise(cor(exposure_baseline, covariate_baseline))
 #> # A tibble: 1 × 1
@@ -248,6 +258,7 @@ We still observe a positive relationship greater than our rule of thumb
 (\|0.1\|). Now let’s create our propensity score weights.
 
 ``` r
+
 denominator_model <- lm(
   exposure_baseline ~ covariate_baseline, 
   data = causal_collider_time
@@ -285,6 +296,7 @@ causal_collider_wts <- causal_collider_time %>%
 We can again examine the distribution of these weights:
 
 ``` r
+
 ggplot(causal_collider_wts, aes(x = swts)) + 
   geom_histogram(bins = 30)
 ```
@@ -295,6 +307,7 @@ We can then examine the weighted correlation to assess balance the
 balance after incorporating the propensity score weight.
 
 ``` r
+
 causal_collider_wts |>
   summarise(
     exposure_w = sum(swts * exposure_baseline) / sum(swts),
@@ -319,6 +332,7 @@ pressure. Note that we are careful to use the *follow-up* measurement
 for the outcome.
 
 ``` r
+
 lm(outcome_followup ~ exposure_baseline, data = causal_collider_wts, weight = swts)
 #> 
 #> Call:

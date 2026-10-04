@@ -20,13 +20,28 @@ hands-on manner. It contains:
 You can install the quartets package from CRAN as follows:
 
 ``` r
+
 install.packages("quartets")
 ```
 
-Or the development version of quartets like so:
+You can install the development version of quartets from
+[r-causal.r-universe.dev](https://r-causal.r-universe.dev/) with:
 
 ``` r
-devtools::install_github("r-causal/quartets")
+
+install.packages(
+  "quartets",
+  repos = c("https://r-causal.r-universe.dev", getOption("repos"))
+)
+```
+
+You can also install the development version of quartets from source
+from [GitHub](https://github.com/r-causal/quartets) with:
+
+``` r
+
+# install.packages("pak")
+pak::pak("r-causal/quartets")
 ```
 
 ## Anscombe’s Quartet
@@ -53,11 +68,12 @@ In each of the datasets the following statistical summaries hold:
 - variance of y: 4.125  
 - correlation between `x` and `y`: 0.816  
 - linear regression between `x` and `y`: `y = 3 + 0.5x`  
-- $R^{2}$ for the regression: 0.67
+- $`R^2`$ for the regression: 0.67
 
 ## Example
 
 ``` r
+
 library(tidyverse)
 library(quartets)
 
@@ -70,6 +86,7 @@ ggplot(anscombe_quartet, aes(x = x, y = y)) +
 ![](reference/figures/README-unnamed-chunk-2-1.png)
 
 ``` r
+
 
 anscombe_quartet |>
   group_by(dataset) |>
@@ -102,6 +119,7 @@ for details.
 ## Example
 
 ``` r
+
 ggplot(causal_quartet, aes(x = exposure, y = outcome)) +
   geom_point() + 
   geom_smooth(method = "lm", formula = "y ~ x") +
@@ -111,6 +129,7 @@ ggplot(causal_quartet, aes(x = exposure, y = outcome)) +
 ![](reference/figures/README-unnamed-chunk-3-1.png)
 
 ``` r
+
 causal_quartet |>
   nest_by(dataset) |>
   mutate(`Y ~ X` = round(coef(lm(outcome ~ exposure, data = data))[2], 2),
@@ -138,6 +157,7 @@ This dataset is re-exported from the
 ## Example
 
 ``` r
+
 ggplot(datasaurus_dozen, aes(x = x, y = y)) +
   geom_point() + 
   geom_smooth(method = "lm", formula = "y ~ x") +
@@ -147,6 +167,7 @@ ggplot(datasaurus_dozen, aes(x = x, y = y)) +
 ![](reference/figures/README-unnamed-chunk-5-1.png)
 
 ``` r
+
 
 datasaurus_dozen |>
   group_by(dataset) |>
@@ -181,6 +202,7 @@ a simple linear interaction model may be the same, the underlying
 data-generating mechanisms can be vastly different.
 
 ``` r
+
 ggplot(interaction_triptych, aes(x, y)) +
   geom_point(shape = "o") +
   geom_smooth(method = "lm", formula = "y ~ x") + 
@@ -191,20 +213,22 @@ ggplot(interaction_triptych, aes(x, y)) +
 
 ## Rashomon Quartet
 
-This dataset demonstrates that model diagnostics alone (such as $R^{2}$
+This dataset demonstrates that model diagnostics alone (such as $`R^2`$
 and RMSE) do not tell the full story of a prediction model. Here, there
 are three predictors and one outcome. Models fit using a regression
 tree, linear regression, random forest, and neural network all yield the
-same $R^{2}$ and RMSE, but are finding different relationships between
+same $`R^2`$ and RMSE, but are finding different relationships between
 the predictors, as evidenced by the below partial dependence plots.
 
 ``` r
+
 set.seed(1568)
 library(tidymodels)
 library(DALEXtra)
 ```
 
 ``` r
+
 rec <- recipe(y ~ ., data = rashomon_quartet_train)
 
 ## Regression Tree
@@ -277,6 +301,7 @@ exp_nn <- explain_tidymodels(
 We can see that each of these models “perform” the same.
 
 ``` r
+
 mp <- map(list(exp_tree, exp_lin, exp_rf, exp_nn), model_performance)
 tibble(
   model = c("Decision tree", "Linear regression", "Random forest", "Neural network"),
@@ -296,6 +321,7 @@ tibble(
 But the way they fit to the actual predictors is quite different:
 
 ``` r
+
 pd_tree <- model_profile(exp_tree, N=NULL)
 pd_lin <- model_profile(exp_lin, N=NULL)
 pd_rf <- model_profile(exp_rf, N=NULL)
@@ -312,6 +338,7 @@ can get the same average treatment effect despite variability across
 some pre-treatment characteristic (here called `covariate`).
 
 ``` r
+
 ggplot(variation_causal_quartet, aes(x = covariate, y = outcome, color = factor(exposure))) + 
   geom_point(alpha = 0.5) + 
   facet_wrap(~ dataset) + 
@@ -321,6 +348,7 @@ ggplot(variation_causal_quartet, aes(x = covariate, y = outcome, color = factor(
 ![](reference/figures/README-unnamed-chunk-11-1.png)
 
 ``` r
+
 
 variation_causal_quartet |>
   nest_by(dataset) |>
@@ -340,6 +368,7 @@ The `heterogeneous_causal_quartet` demonstrates how you can observe the
 same causal effect under different patterns of treatment heterogeneity.
 
 ``` r
+
 ggplot(heterogeneous_causal_quartet, aes(x = covariate, y = outcome, color = factor(exposure))) + 
   geom_point(alpha = 0.5) + 
   facet_wrap(~ dataset) + 
@@ -349,6 +378,7 @@ ggplot(heterogeneous_causal_quartet, aes(x = covariate, y = outcome, color = fac
 ![](reference/figures/README-unnamed-chunk-12-1.png)
 
 ``` r
+
 
 heterogeneous_causal_quartet |>
   nest_by(dataset) |>
